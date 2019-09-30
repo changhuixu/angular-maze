@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Maze } from './maze/models/maze';
+import { Maze } from './models/maze';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,6 @@ import { Maze } from './maze/models/maze';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'maze';
   row = 20;
   col = 30;
   length = 20;

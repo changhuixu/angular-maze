@@ -2,17 +2,13 @@
   margin: 1rem 0;
 }
 
-.maze-form label {
-  margin-right: 0.5rem;
-}
-
 .maze-form input {
   max-width: 3rem;
   padding: 0.25rem;
-  margin-right: 0.5rem;
+  margin: 0 0.5rem;
 }
 
 .maze-form button {
   padding: 0.25rem;
-  margin-right: 0.5rem;
+  margin: 0 0.5rem;
 }
