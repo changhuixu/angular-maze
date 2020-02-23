@@ -99,6 +99,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-maze-generator"
+    }
+  },
+  "defaultProject": "angular-maze-generator",
+  "cli": {
+    "analytics": "7739deb3-6b11-4882-b9ed-a88747c5be06"
+  }
 }
