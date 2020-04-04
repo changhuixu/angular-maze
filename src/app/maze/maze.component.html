@@ -13,10 +13,12 @@
   </section>
   <section>
     <div class="arrows">
-      <span (click)="play('Left')">⬅️</span>
-      <span (click)="play('Right')">➡️</span>
-      <span (click)="play('Up')">⬆️</span>
-      <span (click)="play('Down')">⬇️</span>
+      <div><span (click)="play('Up')">⬆️</span></div>
+      <div>
+        <span (click)="play('Left')">⬅️</span>
+        <span (click)="play('Right')">➡️</span>
+      </div>
+      <div><span (click)="play('Down')">⬇️</span></div>
     </div>
   </section>
 </div>

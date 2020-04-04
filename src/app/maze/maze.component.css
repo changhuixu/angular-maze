@@ -17,4 +17,5 @@
   font-size: xx-large;
   user-select: none;
   cursor: pointer;
+  margin: auto 0.25rem;
 }
