@@ -5,13 +5,19 @@ import { Cell } from './cell';
  */
 export class Maze {
   public readonly cells: Array<Array<Cell>> = [];
+  private readonly cellBackground = '#FFFFFF';
 
   /**
    * Create a maze with <row> &times; <col> cells.
    * @param nRow number of rows
    * @param nCol number of columns
    */
-  constructor(public nRow: number, public nCol: number) {
+  constructor(
+    public nRow: number,
+    public nCol: number,
+    public cellSize: number,
+    public ctx: CanvasRenderingContext2D
+  ) {
     // initialize cells
     for (let i = 0; i < nRow; i++) {
       this.cells[i] = [];
@@ -27,28 +33,47 @@ export class Maze {
     this.huntAndKill(current);
   }
 
-  draw(canvas: HTMLCanvasElement, cellPixels: number, lineThickness = 2) {
-    var ctx = canvas.getContext('2d');
-    ctx.lineWidth = lineThickness;
+  draw(lineThickness = 2) {
+    this.ctx.lineWidth = lineThickness;
     this.cells.forEach(x =>
       x.forEach(c => {
-        c.draw(ctx, cellPixels);
+        c.draw(this.ctx, this.cellSize, this.cellBackground);
       })
     );
   }
 
-  drawPath(canvas: HTMLCanvasElement, cellPixels: number, lineThickness = 4) {
-    var ctx = canvas.getContext('2d');
-    ctx.lineWidth = lineThickness;
-    ctx.strokeStyle = '#4080ff';
-    ctx.beginPath();
-    ctx.moveTo(0, cellPixels / 2);
+  drawPath(
+    path: Cell[],
+    color = '#4080ff',
+    lineThickness = 10,
+    drawSolution = false
+  ) {
+    this.ctx.lineWidth = lineThickness;
+    this.ctx.strokeStyle = color;
+    this.ctx.beginPath();
+    this.ctx.moveTo(0, this.cellSize / 2);
 
-    this.findPath().forEach(x =>
-      ctx.lineTo((x.col + 0.5) * cellPixels, (x.row + 0.5) * cellPixels)
+    path.forEach(x =>
+      this.ctx.lineTo(
+        (x.col + 0.5) * this.cellSize,
+        (x.row + 0.5) * this.cellSize
+      )
     );
-    ctx.lineTo(this.nCol * cellPixels, (this.nRow - 0.5) * cellPixels);
-    ctx.stroke();
+    if (drawSolution) {
+      this.ctx.lineTo(
+        this.nCol * this.cellSize,
+        (this.nRow - 0.5) * this.cellSize
+      );
+    }
+    this.ctx.stroke();
+  }
+
+  erasePath(path: Cell[]) {
+    this.drawPath(path, this.cellBackground);
+  }
+
+  drawSolution(color = '#ff7575', lineThickness = 10) {
+    this.drawPath(this.findPath(), color, lineThickness, true);
   }
 
   findPath(): Array<Cell> {
@@ -133,9 +158,9 @@ export class Maze {
   //The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
   //See https://github.com/coolaj86/knuth-shuffle
   private shufflearray(array: number[]): number[] {
-    var currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
+    let currentIndex = array.length,
+      temporaryValue = 0,
+      randomIndex = 0;
 
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {

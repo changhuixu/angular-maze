@@ -55,7 +55,18 @@ export class Cell {
     throw new Error('These two cells are not neighbors.');
   }
 
-  draw(ctx: CanvasRenderingContext2D, length: number) {
+  draw(
+    ctx: CanvasRenderingContext2D,
+    length: number,
+    cellBackground = '#FFFFFF'
+  ) {
+    ctx.fillStyle = cellBackground;
+    ctx.fillRect(
+      this.col * length,
+      this.row * length,
+      (this.col + 1) * length,
+      (this.row + 1) * length
+    );
     if (this.northWall) {
       ctx.beginPath();
       ctx.moveTo(this.col * length, this.row * length);

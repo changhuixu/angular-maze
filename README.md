@@ -8,4 +8,4 @@ Path finding is based on "depth-first" algorithm.
 
 Drawing is based on canvas.
 
-<img src="./src/assets/maze.PNG" width="650">
+<img src="./maze.PNG" width="650">

@@ -13,11 +13,12 @@ import { CandyComponent } from './candy/candy.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
+      { path: '', redirectTo: 'maze', pathMatch: 'full' },
       { path: 'maze', component: MazeComponent },
       { path: 'candy', component: CandyComponent },
-      { path: '**', redirectTo: '' }
-    ])
+      { path: '**', redirectTo: '' },
+    ]),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
