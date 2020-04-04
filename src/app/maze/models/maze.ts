@@ -43,11 +43,11 @@ export class Maze {
     ctx.strokeStyle = '#4080ff';
     ctx.beginPath();
     ctx.moveTo(0, cellPixels / 2);
-    
+
     this.findPath().forEach(x =>
-        ctx.lineTo((x.col + 0.5) * cellPixels, (x.row + 0.5) * cellPixels)
+      ctx.lineTo((x.col + 0.5) * cellPixels, (x.row + 0.5) * cellPixels)
     );
-    ctx.lineTo(this.nCol * cellPixels, (this.nRow - 0.5) * cellPixels)
+    ctx.lineTo(this.nCol * cellPixels, (this.nRow - 0.5) * cellPixels);
     ctx.stroke();
   }
 
@@ -84,8 +84,10 @@ export class Maze {
     );
     if (unvisitedNeighbors.length === 0) {
       // Hunt
-      for (let huntRow = 0; huntRow < this.nRow; huntRow++) {
-        for (let huntColumn = 0; huntColumn < this.nCol; huntColumn++) {
+      const randomRows = this.shufflearray([...Array(this.nRow).keys()]);
+      for (let huntRow of randomRows) {
+        const randomColumns = this.shufflearray([...Array(this.nCol).keys()]);
+        for (let huntColumn of randomColumns) {
           current = this.cells[huntRow][huntColumn];
           if (current.hasVisited()) {
             continue;
@@ -126,6 +128,28 @@ export class Maze {
       neighbors.push(this.cells[cell.row][cell.col + 1]);
     }
     return neighbors;
+  }
+
+  //The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
+  //See https://github.com/coolaj86/knuth-shuffle
+  private shufflearray(array: number[]): number[] {
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   }
 }
 
