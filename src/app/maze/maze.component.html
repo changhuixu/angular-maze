@@ -1,0 +1,19 @@
+<div style="text-align:center">
+  <h1>Maze generator and solver in Angular</h1>
+  <div class="maze-form">
+    <label for="nRow"># Rows</label>
+    <input id="nRow" type="number" [(ngModel)]="row" />
+    <label for="nCol"># Columns</label>
+    <input id="nCol" type="number" [(ngModel)]="col" />
+    <button type="button" (click)="drawMaze()">Draw Maze</button>
+    <button type="button" (click)="drawPath()">Draw Path</button>
+    <a
+      href="https://github.com/changhuixu/angular-maze-generator"
+      title="git repo"
+      >GitHub Repo</a
+    >
+  </div>
+  <section>
+    <canvas id="maze"></canvas>
+  </section>
+</div>

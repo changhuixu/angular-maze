@@ -1,14 +1,20 @@
-.maze-form {
-  margin: 1rem 0;
+nav a {
+  display: inline-block;
+  color: #000;
+  background: #dbeccd;
+  padding: 0.5rem 1rem;
+  width: 5rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.maze-form input {
-  max-width: 3rem;
-  padding: 0.25rem;
-  margin: 0 0.5rem;
+nav a.active {
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
 }
 
-.maze-form button {
-  padding: 0.25rem;
-  margin: 0 0.5rem;
+nav a:hover:not(.active) {
+  background-color: #8cad70;
+  color: white;
 }
