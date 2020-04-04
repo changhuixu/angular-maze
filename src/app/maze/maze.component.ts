@@ -120,7 +120,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  drawPath() {
+  solution() {
     this.gameOver = true;
     this.maze.drawSolution('#ff7575', 3);
   }

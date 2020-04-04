@@ -12,3 +12,9 @@
   padding: 0.25rem;
   margin: 0 0.5rem;
 }
+
+.arrows span {
+  font-size: xx-large;
+  user-select: none;
+  cursor: pointer;
+}

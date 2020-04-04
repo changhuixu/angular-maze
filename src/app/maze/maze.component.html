@@ -6,17 +6,17 @@
     <label for="nCol"># Columns</label>
     <input id="nCol" type="number" [(ngModel)]="col" />
     <button type="button" (click)="drawMaze()">New Maze</button>
-    <button type="button" (click)="drawPath()">Solution</button>
+    <button type="button" (click)="solution()">Solution</button>
   </div>
   <section>
     <canvas id="maze"></canvas>
   </section>
   <section>
-    <div>
-      <small>
-        User Arrow keys or AWSD to navigate the maze from top-left to
-        bottom-right.
-      </small>
+    <div class="arrows">
+      <span (click)="play('Left')">⬅️</span>
+      <span (click)="play('Right')">➡️</span>
+      <span (click)="play('Up')">⬆️</span>
+      <span (click)="play('Down')">⬇️</span>
     </div>
   </section>
 </div>
