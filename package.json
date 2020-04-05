@@ -1,12 +1,12 @@
 {
-  "name": "angular-maze-generator",
+  "name": "angular-maze",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "ghpage": "npm run build:page && cp ./docs/index.html ./docs/404.html",
-    "build:page": "ng build --prod --output-path docs --base-href /angular-maze-generator/",
+    "build:page": "ng build --prod --output-path docs --base-href /angular-maze/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

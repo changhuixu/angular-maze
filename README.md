@@ -1,6 +1,6 @@
 # Maze Generator and Solver in Angular
 
-## [Demo](https://changhuixu.github.io/angular-maze-generator/)
+## [Demo](https://changhuixu.github.io/angular-maze/)
 
 Maze is generated using "hunt-and-kill" algorithm.
 

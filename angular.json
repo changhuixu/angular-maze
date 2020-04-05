@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-maze-generator": {
+    "angular-maze": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -35,7 +35,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-maze-generator",
+            "outputPath": "dist/angular-maze",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -84,24 +84,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-maze-generator:build"
+            "browserTarget": "angular-maze:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-maze-generator:build:production"
+              "browserTarget": "angular-maze:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-maze-generator:build"
+            "browserTarget": "angular-maze:build"
           }
         }
       }
     }
   },
-  "defaultProject": "angular-maze-generator",
+  "defaultProject": "angular-maze",
   "cli": {
     "analytics": "7739deb3-6b11-4882-b9ed-a88747c5be06"
   }
