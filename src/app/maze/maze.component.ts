@@ -1,10 +1,10 @@
 import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
-import { Cell, Maze } from './models';
+import { Cell, Maze, keyboardMap } from './models';
 
 @Component({
   selector: 'app-maze',
   templateUrl: './maze.component.html',
-  styleUrls: ['./maze.component.css']
+  styleUrls: ['./maze.component.css'],
 })
 export class MazeComponent implements OnInit, AfterViewInit {
   row = 15;
@@ -40,6 +40,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
     this.ctx.strokeStyle = color;
     this.ctx.beginPath();
     this.ctx.moveTo(0, this.cellSize / 2);
+    this.ctx.lineTo(this.cellSize / 2, this.cellSize / 2);
     this.ctx.stroke();
     this.currentCell = this.maze.cells[0][0];
     this.myPath.push(this.currentCell);
@@ -48,33 +49,11 @@ export class MazeComponent implements OnInit, AfterViewInit {
   @HostListener('window:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (this.gameOver) return;
-    switch (event.key) {
-      case 'ArrowLeft':
-      case 'a':
-      case 'A':
-        this.play('Left');
-        break;
-      case 'ArrowRight':
-      case 'D':
-      case 'd':
-        this.play('Right');
-        break;
-      case 'ArrowUp':
-      case 'W':
-      case 'w':
-        this.play('Up');
-        break;
-      case 'ArrowDown':
-      case 's':
-      case 'S':
-        this.play('Down');
-        break;
-      default:
-        break;
-    }
+    const direction = keyboardMap[event.key];
+    if (direction) this.move(direction);
   }
 
-  play(direction: 'Left' | 'Right' | 'Up' | 'Down') {
+  move(direction: 'Left' | 'Right' | 'Up' | 'Down') {
     let nextCell: Cell;
     if (direction === 'Left') {
       if (this.currentCell.col < 1) return;
@@ -110,8 +89,10 @@ export class MazeComponent implements OnInit, AfterViewInit {
       } else {
         this.myPath.push(nextCell);
         if (nextCell.equals(new Cell(this.row - 1, this.col - 1))) {
-          this.gameOver = true;
           this.hooray();
+          this.gameOver = true;
+          this.maze.drawSolution('#4080ff');
+          return;
         }
       }
 

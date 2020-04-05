@@ -35,11 +35,21 @@ export class Maze {
 
   draw(lineThickness = 2) {
     this.ctx.lineWidth = lineThickness;
-    this.cells.forEach(x =>
-      x.forEach(c => {
+    this.cells.forEach((x) =>
+      x.forEach((c) => {
         c.draw(this.ctx, this.cellSize, this.cellBackground);
       })
     );
+    // open the beginning and ending cells
+    this.ctx.save();
+    this.ctx.beginPath();
+    this.ctx.strokeStyle = this.cellBackground;
+    this.ctx.moveTo(0, 0);
+    this.ctx.lineTo(0, this.cellSize);
+    this.ctx.moveTo(this.nCol * this.cellSize, (this.nRow - 1) * this.cellSize);
+    this.ctx.lineTo(this.nCol * this.cellSize, this.nRow * this.cellSize);
+    this.ctx.stroke();
+    this.ctx.restore();
   }
 
   drawPath(
@@ -53,7 +63,7 @@ export class Maze {
     this.ctx.beginPath();
     this.ctx.moveTo(0, this.cellSize / 2);
 
-    path.forEach(x =>
+    path.forEach((x) =>
       this.ctx.lineTo(
         (x.col + 0.5) * this.cellSize,
         (x.row + 0.5) * this.cellSize
@@ -77,7 +87,7 @@ export class Maze {
   }
 
   findPath(): Array<Cell> {
-    this.cells.forEach(x => x.forEach(c => (c.traversed = false)));
+    this.cells.forEach((x) => x.forEach((c) => (c.traversed = false)));
     const start = this.cells[0][0];
     const end = this.cells[this.nRow - 1][this.nCol - 1];
     const path: Array<Cell> = [];
@@ -92,8 +102,8 @@ export class Maze {
       }
 
       const traversableNeighbors = this.getNeighbors(current)
-        .filter(c => c.hasConnectionWith(current))
-        .filter(c => !c.traversed);
+        .filter((c) => c.hasConnectionWith(current))
+        .filter((c) => !c.traversed);
       if (traversableNeighbors.length === 0) {
         path.splice(0, 1);
       } else {
@@ -105,7 +115,7 @@ export class Maze {
 
   private huntAndKill(current: Cell) {
     const unvisitedNeighbors = this.getNeighbors(current).filter(
-      c => !c.hasVisited()
+      (c) => !c.hasVisited()
     );
     if (unvisitedNeighbors.length === 0) {
       // Hunt
@@ -117,7 +127,7 @@ export class Maze {
           if (current.hasVisited()) {
             continue;
           }
-          const visitedNeighbors = this.getNeighbors(current).filter(c =>
+          const visitedNeighbors = this.getNeighbors(current).filter((c) =>
             c.hasVisited()
           );
           if (visitedNeighbors.length < 1) {
@@ -156,24 +166,13 @@ export class Maze {
   }
 
   //The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
-  //See https://github.com/coolaj86/knuth-shuffle
   private shufflearray(array: number[]): number[] {
-    let currentIndex = array.length,
-      temporaryValue = 0,
-      randomIndex = 0;
-
-    // While there remain elements to shuffle...
+    let currentIndex = array.length;
     while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+      const temp = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[temp]] = [array[temp], array[currentIndex]];
     }
-
     return array;
   }
 }
