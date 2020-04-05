@@ -4,7 +4,7 @@ import { Cell, Maze, keyboardMap } from './models';
 @Component({
   selector: 'app-maze',
   templateUrl: './maze.component.html',
-  styleUrls: ['./maze.component.css'],
+  styleUrls: ['./maze.component.css']
 })
 export class MazeComponent implements OnInit, AfterViewInit {
   row = 15;
@@ -50,7 +50,10 @@ export class MazeComponent implements OnInit, AfterViewInit {
   handleKeyDown(event: KeyboardEvent) {
     if (this.gameOver) return;
     const direction = keyboardMap[event.key];
-    if (direction) this.move(direction);
+    if (direction) {
+      this.move(direction);
+      event.preventDefault();
+    }
   }
 
   move(direction: 'Left' | 'Right' | 'Up' | 'Down') {

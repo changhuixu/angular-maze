@@ -4,7 +4,7 @@ import { CandyText } from './models/candy-text';
 @Component({
   selector: 'app-candy',
   templateUrl: './candy.component.html',
-  styleUrls: ['./candy.component.css'],
+  styleUrls: ['./candy.component.css']
 })
 export class CandyComponent implements OnInit, AfterViewInit {
   private canvas: HTMLCanvasElement;

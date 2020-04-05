@@ -17,7 +17,7 @@ export class CandyText {
     this.ctx = this.canvas.getContext('2d');
     this.canvasWidth = this.canvas.width;
     this.canvasHeight = this.canvas.height;
-    this.canvas.addEventListener('mousemove', (e) => {
+    this.canvas.addEventListener('mousemove', e => {
       this.calculateMouseRelativePositionInCanvas(e);
     });
     this.canvas.addEventListener('mouseenter', () => {
@@ -34,7 +34,7 @@ export class CandyText {
     this.ctx.font = this.textFont;
     this.ctx.fillStyle = '#000000';
     const starting = this.canvasWidth / 2 - 50 * word.length;
-    this.ctx.fillText(word, starting, 220);
+    if (starting) this.ctx.fillText(word, starting, 220);
     const imageData = this.ctx.getImageData(
       0,
       0,
@@ -54,7 +54,6 @@ export class CandyText {
         }
       }
     }
-    this.animate();
   }
 
   private drawBackground() {
@@ -70,10 +69,10 @@ export class CandyText {
 
     this.drawBackground();
     // clean particles are not in canvas to reduce computation
-    this.particles = this.particles.filter((p) =>
+    this.particles = this.particles.filter(p =>
       p.isInCanvas(this.canvas.width, this.canvas.height)
     );
-    this.particles.forEach((p) => {
+    this.particles.forEach(p => {
       p.flyAwayWhenMouseOver(this.mousePosition);
       p.draw(this.ctx);
     });

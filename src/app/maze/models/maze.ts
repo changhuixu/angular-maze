@@ -27,16 +27,16 @@ export class Maze {
     }
 
     // generate maze
-    const current = this.cells[RandomNumber.within(this.nRow)][
-      RandomNumber.within(this.nCol)
+    const current = this.cells[Utils.randomIndex(this.nRow)][
+      Utils.randomIndex(this.nCol)
     ];
     this.huntAndKill(current);
   }
 
   draw(lineThickness = 2) {
     this.ctx.lineWidth = lineThickness;
-    this.cells.forEach((x) =>
-      x.forEach((c) => {
+    this.cells.forEach(x =>
+      x.forEach(c => {
         c.draw(this.ctx, this.cellSize, this.cellBackground);
       })
     );
@@ -63,7 +63,7 @@ export class Maze {
     this.ctx.beginPath();
     this.ctx.moveTo(0, this.cellSize / 2);
 
-    path.forEach((x) =>
+    path.forEach(x =>
       this.ctx.lineTo(
         (x.col + 0.5) * this.cellSize,
         (x.row + 0.5) * this.cellSize
@@ -87,7 +87,7 @@ export class Maze {
   }
 
   findPath(): Array<Cell> {
-    this.cells.forEach((x) => x.forEach((c) => (c.traversed = false)));
+    this.cells.forEach(x => x.forEach(c => (c.traversed = false)));
     const start = this.cells[0][0];
     const end = this.cells[this.nRow - 1][this.nCol - 1];
     const path: Array<Cell> = [];
@@ -102,8 +102,8 @@ export class Maze {
       }
 
       const traversableNeighbors = this.getNeighbors(current)
-        .filter((c) => c.hasConnectionWith(current))
-        .filter((c) => !c.traversed);
+        .filter(c => c.hasConnectionWith(current))
+        .filter(c => !c.traversed);
       if (traversableNeighbors.length === 0) {
         path.splice(0, 1);
       } else {
@@ -115,26 +115,26 @@ export class Maze {
 
   private huntAndKill(current: Cell) {
     const unvisitedNeighbors = this.getNeighbors(current).filter(
-      (c) => !c.hasVisited()
+      c => !c.hasVisited()
     );
     if (unvisitedNeighbors.length === 0) {
       // Hunt
-      const randomRows = this.shufflearray([...Array(this.nRow).keys()]);
+      const randomRows = Utils.shuffleArray([...Array(this.nRow).keys()]);
       for (let huntRow of randomRows) {
-        const randomColumns = this.shufflearray([...Array(this.nCol).keys()]);
+        const randomColumns = Utils.shuffleArray([...Array(this.nCol).keys()]);
         for (let huntColumn of randomColumns) {
           current = this.cells[huntRow][huntColumn];
           if (current.hasVisited()) {
             continue;
           }
-          const visitedNeighbors = this.getNeighbors(current).filter((c) =>
+          const visitedNeighbors = this.getNeighbors(current).filter(c =>
             c.hasVisited()
           );
           if (visitedNeighbors.length < 1) {
             continue;
           }
           const nextCell =
-            visitedNeighbors[RandomNumber.within(visitedNeighbors.length)];
+            visitedNeighbors[Utils.randomIndex(visitedNeighbors.length)];
           current.breakWallWith(nextCell);
           this.huntAndKill(nextCell);
         }
@@ -142,14 +142,14 @@ export class Maze {
     } else {
       // Kill
       const nextCell =
-        unvisitedNeighbors[RandomNumber.within(unvisitedNeighbors.length)];
+        unvisitedNeighbors[Utils.randomIndex(unvisitedNeighbors.length)];
       current.breakWallWith(nextCell);
       this.huntAndKill(nextCell);
     }
   }
 
-  private getNeighbors(cell: Cell): Array<Cell> {
-    const neighbors = [];
+  private getNeighbors(cell: Cell): Cell[] {
+    const neighbors: Cell[] = [];
     if (cell.row - 1 >= 0) {
       neighbors.push(this.cells[cell.row - 1][cell.col]);
     }
@@ -164,9 +164,13 @@ export class Maze {
     }
     return neighbors;
   }
+}
 
-  //The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
-  private shufflearray(array: number[]): number[] {
+class Utils {
+  /**
+   * The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
+   */
+  static shuffleArray(array: number[]): number[] {
     let currentIndex = array.length;
     while (0 !== currentIndex) {
       const temp = Math.floor(Math.random() * currentIndex);
@@ -175,10 +179,11 @@ export class Maze {
     }
     return array;
   }
-}
 
-class RandomNumber {
-  static within(n: number): number {
+  /**
+   * Generate a random index within a number `n`
+   */
+  static randomIndex(n: number): number {
     return Math.floor(Math.random() * n);
   }
 }
