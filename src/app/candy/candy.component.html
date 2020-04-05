@@ -1,9 +1,10 @@
-<div style="text-align:center">
-  <h1>Candy Text</h1>
-  <canvas
-    id="candy-text"
-    style="border: 1px solid; margin: 0 10px;"
-    width="600"
-    height="300"
-  ></canvas>
+<div style="text-align: center;">
+  <div>
+    <label for="name">Enter your name: </label>
+    <input type="text" [(ngModel)]="name" />
+    <button type="button" (click)="draw()">Draw</button>
+  </div>
+  <section style="height: 300px;">
+    <canvas id="candy-text"></canvas>
+  </section>
 </div>
