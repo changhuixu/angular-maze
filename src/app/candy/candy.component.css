@@ -1,0 +1,13 @@
+.my-form {
+  margin: 1rem 0;
+}
+
+.my-form input {
+  max-width: 10rem;
+  padding: 0.25rem;
+  margin: 0 0.5rem;
+}
+
+.my-form button {
+  padding: 0.25rem;
+}

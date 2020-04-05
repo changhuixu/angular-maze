@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MazeComponent } from './maze/maze.component';
 import { CandyComponent } from './candy/candy.component';
+import { CanvasComponent } from './candy/canvas/canvas.component';
 
 @NgModule({
-  declarations: [AppComponent, MazeComponent, CandyComponent],
+  declarations: [AppComponent, MazeComponent, CandyComponent, CanvasComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -16,9 +17,9 @@ import { CandyComponent } from './candy/candy.component';
       { path: '', redirectTo: 'maze', pathMatch: 'full' },
       { path: 'maze', component: MazeComponent },
       { path: 'candy', component: CandyComponent },
-      { path: '**', redirectTo: '' },
-    ]),
+      { path: '**', redirectTo: '' }
+    ])
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
