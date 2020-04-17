@@ -64,11 +64,11 @@ export class CanvasComponent implements OnInit, AfterViewInit {
     this.continueAnimating = true;
   }
 
-  @HostListener('mouseout', ['$event'])
-  stopAnimation(e: MouseEvent) {
-    window.cancelAnimationFrame(this.raf);
-    this.continueAnimating = false; // stop animation when mouse out.
-  }
+  // @HostListener('mouseout', ['$event'])
+  // stopAnimation(e: MouseEvent) {
+  //   window.cancelAnimationFrame(this.raf);
+  //   this.continueAnimating = false; // stop animation when mouse out.
+  // }
 
   animate() {
     if (!this.particles.length || !this.continueAnimating) {

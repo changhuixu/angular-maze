@@ -3,56 +3,71 @@
  */
 export class Cell {
   /**
+   * if false: connect to a neighbor cell above itself.
+   */
+  public northEdge: boolean = true;
+
+  /**
+   * if false: connect to a neighbor cell right to itself.
+   */
+  public eastEdge: boolean = true;
+
+  /**
+   * if false: connect to a neighbor cell under itself.
+   */
+  public westEdge: boolean = true;
+
+  /**
+   * if false: connect to a neighbor cell left to itself.
+   */
+  public southEdge: boolean = true;
+
+  /**
+   * a flag used to indicate if the cell has been traversed or not when finding a maze path
+   */
+  public traversed: boolean = false;
+
+  /**
+   * a flag used to indicate if the cell has been visited or not when hunt-and-kill
+   */
+  public visited: boolean = false;
+
+  /**
    * Create a cell in a maze.
    * @param row rowID of the cell in a maze. integer, row>=0
    * @param col colID of the cell in a maze. integer, col>=0
-   * @param northWall if false: connect to a neighbor cell above itself.
-   * @param eastWall if false: connect to a neighbor cell right to itself.
-   * @param westWall if false: connect to a neighbor cell under itself.
-   * @param southWall if false: connect to a neighbor cell left to itself.
    */
   constructor(
     public readonly row: number = 0,
-    public readonly col: number = 0,
-    public northWall: boolean = true,
-    public eastWall: boolean = true,
-    public westWall: boolean = true,
-    public southWall: boolean = true,
-    public traversed: boolean = false
+    public readonly col: number = 0
   ) {}
 
-  hasVisited(): boolean {
-    return (
-      !this.northWall || !this.eastWall || !this.westWall || !this.southWall
-    );
-  }
-
-  breakWallWith(another: Cell) {
+  connectTo(another: Cell) {
     if (this.row === another.row) {
       if (this.col - 1 === another.col) {
-        this.westWall = false;
-        another.eastWall = false;
+        this.westEdge = false;
+        another.eastEdge = false;
+      } else if (this.col + 1 === another.col) {
+        this.eastEdge = false;
+        another.westEdge = false;
+      } else {
         return;
       }
-      if (this.col + 1 === another.col) {
-        this.eastWall = false;
-        another.westWall = false;
-        return;
-      }
-    }
-    if (this.col === another.col) {
+    } else if (this.col === another.col) {
       if (this.row - 1 === another.row) {
-        this.northWall = false;
-        another.southWall = false;
+        this.northEdge = false;
+        another.southEdge = false;
+      } else if (this.row + 1 === another.row) {
+        this.southEdge = false;
+        another.northEdge = false;
+      } else {
         return;
       }
-      if (this.row + 1 === another.row) {
-        this.southWall = false;
-        another.northWall = false;
-        return;
-      }
+    } else {
+      return;
     }
-    throw new Error('These two cells are not neighbors.');
+    this.visited = true;
+    another.visited = true;
   }
 
   draw(
@@ -67,25 +82,25 @@ export class Cell {
       (this.col + 1) * length,
       (this.row + 1) * length
     );
-    if (this.northWall) {
+    if (this.northEdge) {
       ctx.beginPath();
       ctx.moveTo(this.col * length, this.row * length);
       ctx.lineTo((this.col + 1) * length, this.row * length);
       ctx.stroke();
     }
-    if (this.eastWall) {
+    if (this.eastEdge) {
       ctx.beginPath();
       ctx.moveTo((this.col + 1) * length, this.row * length);
       ctx.lineTo((this.col + 1) * length, (this.row + 1) * length);
       ctx.stroke();
     }
-    if (this.southWall) {
+    if (this.southEdge) {
       ctx.beginPath();
       ctx.moveTo((this.col + 1) * length, (this.row + 1) * length);
       ctx.lineTo(this.col * length, (this.row + 1) * length);
       ctx.stroke();
     }
-    if (this.westWall) {
+    if (this.westEdge) {
       ctx.beginPath();
       ctx.moveTo(this.col * length, (this.row + 1) * length);
       ctx.lineTo(this.col * length, this.row * length);
@@ -97,27 +112,27 @@ export class Cell {
     return this.row === another.row && this.col === another.col;
   }
 
-  hasConnectionWith(another: Cell): boolean {
+  isConnectedTo(another: Cell): boolean {
     if (this.row === another.row) {
       if (this.col - 1 === another.col) {
-        if (this.westWall === false && another.eastWall === false) {
+        if (this.westEdge === false && another.eastEdge === false) {
           return true;
         }
       }
       if (this.col + 1 === another.col) {
-        if (this.eastWall === false && another.westWall === false) {
+        if (this.eastEdge === false && another.westEdge === false) {
           return true;
         }
       }
     }
     if (this.col === another.col) {
       if (this.row - 1 === another.row) {
-        if (this.northWall === false && another.southWall === false) {
+        if (this.northEdge === false && another.southEdge === false) {
           return true;
         }
       }
       if (this.row + 1 === another.row) {
-        if (this.southWall === false && another.northWall === false) {
+        if (this.southEdge === false && another.northEdge === false) {
           return true;
         }
       }

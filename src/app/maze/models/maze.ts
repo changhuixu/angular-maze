@@ -6,6 +6,8 @@ import { Cell } from './cell';
 export class Maze {
   public readonly cells: Array<Array<Cell>> = [];
   private readonly cellBackground = '#FFFFFF';
+  private readonly randomRowNumbers: number[];
+  private readonly randomColNumbers: number[];
 
   /**
    * Create a maze with <row> &times; <col> cells.
@@ -30,26 +32,25 @@ export class Maze {
     const current = this.cells[Utils.randomIndex(this.nRow)][
       Utils.randomIndex(this.nCol)
     ];
+    this.randomRowNumbers = Utils.shuffleArray([...Array(this.nRow).keys()]);
+    this.randomColNumbers = Utils.shuffleArray([...Array(this.nCol).keys()]);
     this.huntAndKill(current);
   }
 
   draw(lineThickness = 2) {
+    // open the beginning and ending cells
+    const start = this.cells[0][0];
+    const end = this.cells[this.nRow - 1][this.nCol - 1];
+    start.westEdge = false;
+    end.eastEdge = false;
+
+    // draw the cells
     this.ctx.lineWidth = lineThickness;
     this.cells.forEach(x =>
       x.forEach(c => {
         c.draw(this.ctx, this.cellSize, this.cellBackground);
       })
     );
-    // open the beginning and ending cells
-    this.ctx.save();
-    this.ctx.beginPath();
-    this.ctx.strokeStyle = this.cellBackground;
-    this.ctx.moveTo(0, 0);
-    this.ctx.lineTo(0, this.cellSize);
-    this.ctx.moveTo(this.nCol * this.cellSize, (this.nRow - 1) * this.cellSize);
-    this.ctx.lineTo(this.nCol * this.cellSize, this.nRow * this.cellSize);
-    this.ctx.stroke();
-    this.ctx.restore();
   }
 
   drawPath(
@@ -102,7 +103,7 @@ export class Maze {
       }
 
       const traversableNeighbors = this.getNeighbors(current)
-        .filter(c => c.hasConnectionWith(current))
+        .filter(c => c.isConnectedTo(current))
         .filter(c => !c.traversed);
       if (traversableNeighbors.length === 0) {
         path.splice(0, 1);
@@ -115,27 +116,25 @@ export class Maze {
 
   private huntAndKill(current: Cell) {
     const unvisitedNeighbors = this.getNeighbors(current).filter(
-      c => !c.hasVisited()
+      c => !c.visited
     );
     if (unvisitedNeighbors.length === 0) {
       // Hunt
-      const randomRows = Utils.shuffleArray([...Array(this.nRow).keys()]);
-      for (let huntRow of randomRows) {
-        const randomColumns = Utils.shuffleArray([...Array(this.nCol).keys()]);
-        for (let huntColumn of randomColumns) {
+      for (let huntRow of this.randomRowNumbers) {
+        for (let huntColumn of this.randomColNumbers) {
           current = this.cells[huntRow][huntColumn];
-          if (current.hasVisited()) {
+          if (current.visited) {
             continue;
           }
-          const visitedNeighbors = this.getNeighbors(current).filter(c =>
-            c.hasVisited()
+          const visitedNeighbors = this.getNeighbors(current).filter(
+            c => c.visited
           );
           if (visitedNeighbors.length < 1) {
             continue;
           }
           const nextCell =
             visitedNeighbors[Utils.randomIndex(visitedNeighbors.length)];
-          current.breakWallWith(nextCell);
+          current.connectTo(nextCell);
           this.huntAndKill(nextCell);
         }
       }
@@ -143,7 +142,7 @@ export class Maze {
       // Kill
       const nextCell =
         unvisitedNeighbors[Utils.randomIndex(unvisitedNeighbors.length)];
-      current.breakWallWith(nextCell);
+      current.connectTo(nextCell);
       this.huntAndKill(nextCell);
     }
   }

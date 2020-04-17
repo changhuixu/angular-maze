@@ -28,8 +28,8 @@ export class Particle {
     const isInRange = dx * dx + dy * dy < mouseAffectRange * mouseAffectRange;
     if (isInRange && !this.flying) {
       this.flying = true;
-      this.vx = (Math.random() - 0.5) * mouseAffectRange;
-      this.vy = (Math.random() - 0.5) * mouseAffectRange;
+      this.vx = (Math.random() - 0.5) * mouseAffectRange * 2;
+      this.vy = (Math.random() - 0.5) * mouseAffectRange * 2;
     }
   }
 

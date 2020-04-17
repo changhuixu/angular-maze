@@ -82,7 +82,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
         this.currentCell.col
       ];
     }
-    if (this.currentCell.hasConnectionWith(nextCell)) {
+    if (this.currentCell.isConnectedTo(nextCell)) {
       if (
         this.myPath.length > 1 &&
         this.myPath[this.myPath.length - 2].equals(nextCell)
