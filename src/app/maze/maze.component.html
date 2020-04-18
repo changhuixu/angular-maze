@@ -1,11 +1,11 @@
 <div style="text-align: center;">
   <div class="maze-form">
     <label for="nRow"># Rows</label>
-    <input id="nRow" type="number" [(ngModel)]="row" />
+    <input id="nRow" type="number" [(ngModel)]="row" min="1" max="50" />
     <label for="nCol"># Columns</label>
-    <input id="nCol" type="number" [(ngModel)]="col" />
+    <input id="nCol" type="number" [(ngModel)]="col" min="1" max="50" />
     <button type="button" (click)="drawMaze()">New Maze</button>
-    <button type="button" (click)="solution()">Solution</button>
+    <button type="button" (click)="drawSolution()">Solution</button>
   </div>
   <section>
     <canvas id="maze"></canvas>

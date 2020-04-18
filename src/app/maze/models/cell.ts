@@ -2,35 +2,20 @@
  *
  */
 export class Cell {
-  /**
-   * if false: connect to a neighbor cell above itself.
-   */
-  public northEdge: boolean = true;
-
-  /**
-   * if false: connect to a neighbor cell right to itself.
-   */
-  public eastEdge: boolean = true;
-
-  /**
-   * if false: connect to a neighbor cell under itself.
-   */
-  public westEdge: boolean = true;
-
-  /**
-   * if false: connect to a neighbor cell left to itself.
-   */
-  public southEdge: boolean = true;
+  northEdge: boolean = true;
+  eastEdge: boolean = true;
+  westEdge: boolean = true;
+  southEdge: boolean = true;
 
   /**
    * a flag used to indicate if the cell has been traversed or not when finding a maze path
    */
-  public traversed: boolean = false;
+  traversed: boolean = false;
 
   /**
    * a flag used to indicate if the cell has been visited or not when hunt-and-kill
    */
-  public visited: boolean = false;
+  visited: boolean = false;
 
   /**
    * Create a cell in a maze.
@@ -68,44 +53,6 @@ export class Cell {
     }
     this.visited = true;
     another.visited = true;
-  }
-
-  draw(
-    ctx: CanvasRenderingContext2D,
-    length: number,
-    cellBackground = '#FFFFFF'
-  ) {
-    ctx.fillStyle = cellBackground;
-    ctx.fillRect(
-      this.col * length,
-      this.row * length,
-      (this.col + 1) * length,
-      (this.row + 1) * length
-    );
-    if (this.northEdge) {
-      ctx.beginPath();
-      ctx.moveTo(this.col * length, this.row * length);
-      ctx.lineTo((this.col + 1) * length, this.row * length);
-      ctx.stroke();
-    }
-    if (this.eastEdge) {
-      ctx.beginPath();
-      ctx.moveTo((this.col + 1) * length, this.row * length);
-      ctx.lineTo((this.col + 1) * length, (this.row + 1) * length);
-      ctx.stroke();
-    }
-    if (this.southEdge) {
-      ctx.beginPath();
-      ctx.moveTo((this.col + 1) * length, (this.row + 1) * length);
-      ctx.lineTo(this.col * length, (this.row + 1) * length);
-      ctx.stroke();
-    }
-    if (this.westEdge) {
-      ctx.beginPath();
-      ctx.moveTo(this.col * length, (this.row + 1) * length);
-      ctx.lineTo(this.col * length, this.row * length);
-      ctx.stroke();
-    }
   }
 
   equals(another: Cell): boolean {

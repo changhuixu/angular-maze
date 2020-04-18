@@ -1,11 +1,10 @@
 import { Cell } from './cell';
 
 /**
- * A 2-dimensional maze generated based on "hunt-and-kill" algorithm.
+ * A rectangle maze generated based on "hunt-and-kill" algorithm.
  */
 export class Maze {
-  public readonly cells: Array<Array<Cell>> = [];
-  private readonly cellBackground = '#FFFFFF';
+  public readonly cells: Cell[][] = [];
   private readonly randomRowNumbers: number[];
   private readonly randomColNumbers: number[];
 
@@ -14,12 +13,7 @@ export class Maze {
    * @param nRow number of rows
    * @param nCol number of columns
    */
-  constructor(
-    public nRow: number,
-    public nCol: number,
-    public cellSize: number,
-    public ctx: CanvasRenderingContext2D
-  ) {
+  constructor(public nRow: number, public nCol: number) {
     // initialize cells
     for (let i = 0; i < nRow; i++) {
       this.cells[i] = [];
@@ -29,76 +23,36 @@ export class Maze {
     }
 
     // generate maze
-    const current = this.cells[Utils.randomIndex(this.nRow)][
-      Utils.randomIndex(this.nCol)
-    ];
     this.randomRowNumbers = Utils.shuffleArray([...Array(this.nRow).keys()]);
     this.randomColNumbers = Utils.shuffleArray([...Array(this.nCol).keys()]);
-    this.huntAndKill(current);
+    this.huntAndKill(this.randomCell); // hunt-and-kill starting with a random Cell
   }
 
-  draw(lineThickness = 2) {
-    // open the beginning and ending cells
-    const start = this.cells[0][0];
-    const end = this.cells[this.nRow - 1][this.nCol - 1];
-    start.westEdge = false;
-    end.eastEdge = false;
-
-    // draw the cells
-    this.ctx.lineWidth = lineThickness;
-    this.cells.forEach(x =>
-      x.forEach(c => {
-        c.draw(this.ctx, this.cellSize, this.cellBackground);
-      })
-    );
+  get firstCell(): Cell {
+    return this.cells[0][0];
   }
 
-  drawPath(
-    path: Cell[],
-    color = '#4080ff',
-    lineThickness = 10,
-    drawSolution = false
-  ) {
-    this.ctx.lineWidth = lineThickness;
-    this.ctx.strokeStyle = color;
-    this.ctx.beginPath();
-    this.ctx.moveTo(0, this.cellSize / 2);
-
-    path.forEach(x =>
-      this.ctx.lineTo(
-        (x.col + 0.5) * this.cellSize,
-        (x.row + 0.5) * this.cellSize
-      )
-    );
-    if (drawSolution) {
-      this.ctx.lineTo(
-        this.nCol * this.cellSize,
-        (this.nRow - 0.5) * this.cellSize
-      );
-    }
-    this.ctx.stroke();
+  get lastCell(): Cell {
+    return this.cells[this.nRow - 1][this.nCol - 1];
   }
 
-  erasePath(path: Cell[]) {
-    this.drawPath(path, this.cellBackground);
+  get randomCell(): Cell {
+    return this.cells[Utils.random(this.nRow)][Utils.random(this.nCol)];
   }
 
-  drawSolution(color = '#ff7575', lineThickness = 10) {
-    this.drawPath(this.findPath(), color, lineThickness, true);
-  }
-
-  findPath(): Array<Cell> {
+  /**
+   * traverse the maze using depth-first algorithm
+   */
+  findPath(): Cell[] {
     this.cells.forEach(x => x.forEach(c => (c.traversed = false)));
-    const start = this.cells[0][0];
-    const end = this.cells[this.nRow - 1][this.nCol - 1];
-    const path: Array<Cell> = [];
-    path.unshift(start);
+    const path: Cell[] = [];
+    path.unshift(this.firstCell);
 
     while (1) {
       let current = path[0];
       current.traversed = true;
 
-      if (current.equals(end)) {
+      if (current.equals(this.lastCell)) {
         break;
       }
 
@@ -133,7 +87,7 @@ export class Maze {
             continue;
           }
           const nextCell =
-            visitedNeighbors[Utils.randomIndex(visitedNeighbors.length)];
+            visitedNeighbors[Utils.random(visitedNeighbors.length)];
           current.connectTo(nextCell);
           this.huntAndKill(nextCell);
         }
@@ -141,7 +95,7 @@ export class Maze {
     } else {
       // Kill
       const nextCell =
-        unvisitedNeighbors[Utils.randomIndex(unvisitedNeighbors.length)];
+        unvisitedNeighbors[Utils.random(unvisitedNeighbors.length)];
       current.connectTo(nextCell);
       this.huntAndKill(nextCell);
     }
@@ -171,7 +125,7 @@ class Utils {
    */
   static shuffleArray(array: number[]): number[] {
     let currentIndex = array.length;
-    while (0 !== currentIndex) {
+    while (currentIndex !== 0) {
       const temp = Math.floor(Math.random() * currentIndex);
       currentIndex--;
       [array[currentIndex], array[temp]] = [array[temp], array[currentIndex]];
@@ -182,7 +136,7 @@ class Utils {
   /**
    * Generate a random index within a number `n`
    */
-  static randomIndex(n: number): number {
+  static random(n: number): number {
     return Math.floor(Math.random() * n);
   }
 }
