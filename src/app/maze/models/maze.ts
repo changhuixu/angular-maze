@@ -5,7 +5,7 @@ import { Cell } from './cell';
  */
 export class Maze {
   public readonly cells: Cell[][] = [];
-  private readonly randomRowNumbers: number[];
+  private randomRowNumbers: number[];
   private readonly randomColNumbers: number[];
 
   /**
@@ -21,6 +21,8 @@ export class Maze {
         this.cells[i][j] = new Cell(i, j);
       }
     }
+    // populate cell neighbors (an optimization)
+    this.cells.forEach(row => row.forEach(c => this.mapNeighbors(c)));
 
     // generate maze
     this.randomRowNumbers = Utils.shuffleArray([...Array(this.nRow).keys()]);
@@ -56,7 +58,7 @@ export class Maze {
         break;
       }
 
-      const traversableNeighbors = this.getNeighbors(current)
+      const traversableNeighbors = current.neighbors
         .filter(c => c.isConnectedTo(current))
         .filter(c => !c.traversed);
       if (traversableNeighbors.length === 0) {
@@ -69,10 +71,13 @@ export class Maze {
   }
 
   private huntAndKill(current: Cell) {
-    const unvisitedNeighbors = this.getNeighbors(current).filter(
-      c => !c.visited
-    );
-    if (unvisitedNeighbors.length === 0) {
+    const unvisitedNeighbors = current.neighbors.filter(c => !c.visited);
+    if (unvisitedNeighbors.length) {
+      // Kill
+      const nextCell = unvisitedNeighbors[0];
+      current.connectTo(nextCell);
+      this.huntAndKill(nextCell);
+    } else {
       // Hunt
       for (let huntRow of this.randomRowNumbers) {
         for (let huntColumn of this.randomColNumbers) {
@@ -80,42 +85,30 @@ export class Maze {
           if (current.visited) {
             continue;
           }
-          const visitedNeighbors = this.getNeighbors(current).filter(
-            c => c.visited
-          );
-          if (visitedNeighbors.length < 1) {
-            continue;
+          const visitedNeighbors = current.neighbors.filter(c => c.visited);
+          if (visitedNeighbors.length) {
+            current.connectTo(visitedNeighbors[0]);
+            this.huntAndKill(current);
           }
-          const nextCell =
-            visitedNeighbors[Utils.random(visitedNeighbors.length)];
-          current.connectTo(nextCell);
-          this.huntAndKill(nextCell);
         }
       }
-    } else {
-      // Kill
-      const nextCell =
-        unvisitedNeighbors[Utils.random(unvisitedNeighbors.length)];
-      current.connectTo(nextCell);
-      this.huntAndKill(nextCell);
     }
   }
 
-  private getNeighbors(cell: Cell): Cell[] {
-    const neighbors: Cell[] = [];
+  private mapNeighbors(cell: Cell): void {
     if (cell.row - 1 >= 0) {
-      neighbors.push(this.cells[cell.row - 1][cell.col]);
+      cell.neighbors.push(this.cells[cell.row - 1][cell.col]);
     }
     if (cell.row + 1 < this.nRow) {
-      neighbors.push(this.cells[cell.row + 1][cell.col]);
+      cell.neighbors.push(this.cells[cell.row + 1][cell.col]);
     }
     if (cell.col - 1 >= 0) {
-      neighbors.push(this.cells[cell.row][cell.col - 1]);
+      cell.neighbors.push(this.cells[cell.row][cell.col - 1]);
     }
     if (cell.col + 1 < this.nCol) {
-      neighbors.push(this.cells[cell.row][cell.col + 1]);
+      cell.neighbors.push(this.cells[cell.row][cell.col + 1]);
     }
-    return neighbors;
+    cell.neighbors = Utils.shuffleArray(cell.neighbors);
   }
 }
 
@@ -123,7 +116,7 @@ class Utils {
   /**
    * The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
    */
-  static shuffleArray(array: number[]): number[] {
+  static shuffleArray(array: any[]): any[] {
     let currentIndex = array.length;
     while (currentIndex !== 0) {
       const temp = Math.floor(Math.random() * currentIndex);

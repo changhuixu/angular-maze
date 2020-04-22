@@ -203,15 +203,52 @@ export class MazeComponent implements OnInit, AfterViewInit {
   }
 
   private validateInputs() {
-    if (isNaN(this.row) || this.row < 1 || this.row > 50) {
+    if (isNaN(this.row) || this.row < 1 || this.row > 70) {
       alert('#Rows should be an integer between 1 and 50.');
       this.row = 15;
     }
-    if (isNaN(this.col) || this.col < 1 || this.col > 50) {
+    if (isNaN(this.col) || this.col < 1 || this.col > 70) {
       alert('#Columns should be an integer between 1 and 50.');
       this.col = 15;
     }
     this.row = ~~this.row;
     this.col = ~~this.col;
+  }
+
+  test() {
+    const cellsHaveFourEdges: Cell[] = [];
+    let hasLoop = false;
+    const size = 50;
+    for (let i = 0; i < 100; i++) {
+      const maze = new Maze(size, size);
+      maze.cells.forEach(row =>
+        row.forEach(c => {
+          if (c.nEdges === 4) {
+            cellsHaveFourEdges.push(c);
+          }
+          if (c.col < size - 1 && c.row < size - 1) {
+            if (!c.eastEdge && !c.southEdge) {
+              const cellOnTheRight = maze.cells[c.row][c.col + 1];
+              if (!cellOnTheRight.southEdge) {
+                const cellBelow = maze.cells[c.row + 1][c.col];
+                if (!cellBelow.eastEdge) {
+                  hasLoop = true;
+                }
+              }
+            }
+          }
+        })
+      );
+      if (cellsHaveFourEdges.length) {
+        alert('dead loop');
+        break;
+      }
+      if (hasLoop) {
+        alert('open loop');
+        break;
+      }
+    }
+
+    console.log(`testing has finished`);
   }
 }

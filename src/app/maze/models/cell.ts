@@ -6,6 +6,7 @@ export class Cell {
   eastEdge: boolean = true;
   westEdge: boolean = true;
   southEdge: boolean = true;
+  neighbors: Cell[] = [];
 
   /**
    * a flag used to indicate if the cell has been traversed or not when finding a maze path
@@ -16,6 +17,19 @@ export class Cell {
    * a flag used to indicate if the cell has been visited or not when hunt-and-kill
    */
   visited: boolean = false;
+
+  /**
+   * The number of Edges in this cell.
+   * The nEdges counts all four edges. If an edge is false, then 0.
+   */
+  get nEdges(): number {
+    return (
+      (this.northEdge ? 1 : 0) +
+      (this.southEdge ? 1 : 0) +
+      (this.westEdge ? 1 : 0) +
+      (this.eastEdge ? 1 : 0)
+    );
+  }
 
   /**
    * Create a cell in a maze.
