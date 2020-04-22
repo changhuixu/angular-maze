@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { Cell, Maze, keyboardMap } from './models';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-maze',
@@ -22,6 +23,13 @@ export class MazeComponent implements OnInit, AfterViewInit {
   private gameOver = false;
   private myPath: Cell[] = [];
   private currentCell: Cell;
+  showTestButton = false;
+
+  constructor() {
+    if (!environment.production) {
+      this.showTestButton = true;
+    }
+  }
 
   ngOnInit() {}
 
@@ -204,11 +212,11 @@ export class MazeComponent implements OnInit, AfterViewInit {
 
   private validateInputs() {
     if (isNaN(this.row) || this.row < 1 || this.row > 70) {
-      alert('#Rows should be an integer between 1 and 50.');
+      alert('#Rows should be an integer between 1 and 70.');
       this.row = 15;
     }
     if (isNaN(this.col) || this.col < 1 || this.col > 70) {
-      alert('#Columns should be an integer between 1 and 50.');
+      alert('#Columns should be an integer between 1 and 70.');
       this.col = 15;
     }
     this.row = ~~this.row;

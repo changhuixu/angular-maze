@@ -6,7 +6,7 @@
     <input id="nCol" type="number" [(ngModel)]="col" min="1" max="500" />
     <button type="button" (click)="drawMaze()">New Maze</button>
     <button type="button" (click)="drawSolution()">Solution</button>
-    <button type="button" (click)="test()">Test</button>
+    <button type="button" (click)="test()" *ngIf="showTestButton">Test</button>
   </div>
   <section>
     <canvas id="maze"></canvas>

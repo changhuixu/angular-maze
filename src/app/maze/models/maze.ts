@@ -5,7 +5,7 @@ import { Cell } from './cell';
  */
 export class Maze {
   public readonly cells: Cell[][] = [];
-  private randomRowNumbers: number[];
+  private readonly randomRowNumbers: number[];
   private readonly randomColNumbers: number[];
 
   /**
@@ -47,8 +47,7 @@ export class Maze {
    */
   findPath(): Cell[] {
     this.cells.forEach(x => x.forEach(c => (c.traversed = false)));
-    const path: Cell[] = [];
-    path.unshift(this.firstCell);
+    const path: Cell[] = [this.firstCell];
 
     while (1) {
       let current = path[0];
@@ -61,12 +60,13 @@ export class Maze {
       const traversableNeighbors = current.neighbors
         .filter(c => c.isConnectedTo(current))
         .filter(c => !c.traversed);
-      if (traversableNeighbors.length === 0) {
-        path.splice(0, 1);
-      } else {
+      if (traversableNeighbors.length) {
         path.unshift(traversableNeighbors[0]);
+      } else {
+        path.splice(0, 1);
       }
     }
+
     return path.reverse();
   }
 
@@ -81,14 +81,14 @@ export class Maze {
       // Hunt
       for (let huntRow of this.randomRowNumbers) {
         for (let huntColumn of this.randomColNumbers) {
-          current = this.cells[huntRow][huntColumn];
-          if (current.visited) {
+          const cell = this.cells[huntRow][huntColumn];
+          if (cell.visited) {
             continue;
           }
-          const visitedNeighbors = current.neighbors.filter(c => c.visited);
+          const visitedNeighbors = cell.neighbors.filter(c => c.visited);
           if (visitedNeighbors.length) {
-            current.connectTo(visitedNeighbors[0]);
-            this.huntAndKill(current);
+            cell.connectTo(visitedNeighbors[0]);
+            this.huntAndKill(cell);
           }
         }
       }
@@ -117,11 +117,9 @@ class Utils {
    * The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
    */
   static shuffleArray(array: any[]): any[] {
-    let currentIndex = array.length;
-    while (currentIndex !== 0) {
-      const temp = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[temp]] = [array[temp], array[currentIndex]];
+    for (let i = array.length - 1; i > 0; i--) {
+      const temp = ~~(Math.random() * (i + 1));
+      [array[i], array[temp]] = [array[temp], array[i]];
     }
     return array;
   }
@@ -130,6 +128,6 @@ class Utils {
    * Generate a random index within a number `n`
    */
   static random(n: number): number {
-    return Math.floor(Math.random() * n);
+    return ~~(Math.random() * n);
   }
 }
