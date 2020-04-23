@@ -27,7 +27,7 @@ export class Maze {
     // generate maze
     this.randomRowNumbers = Utils.shuffleArray([...Array(this.nRow).keys()]);
     this.randomColNumbers = Utils.shuffleArray([...Array(this.nCol).keys()]);
-    this.kill(this.randomCell); // hunt-and-kill starts with kill mode from a random Cell
+    this.huntAndKill();
   }
 
   get firstCell(): Cell {
@@ -70,17 +70,21 @@ export class Maze {
     return path.reverse();
   }
 
+  private huntAndKill() {
+    let current = this.randomCell; // hunt-and-kill starts from a random Cell
+    while (current) {
+      this.kill(current);
+      current = this.hunt();
+    }
+  }
   private kill(current: Cell) {
     const next = current.neighbors.find(c => !c.visited);
     if (next) {
       current.connectTo(next);
       this.kill(next);
-    } else {
-      this.hunt();
     }
   }
-
-  private hunt() {
+  private hunt(): Cell {
     for (let huntRow of this.randomRowNumbers) {
       for (let huntColumn of this.randomColNumbers) {
         const cell = this.cells[huntRow][huntColumn];
@@ -90,7 +94,7 @@ export class Maze {
         const next = cell.neighbors.find(c => c.visited);
         if (next) {
           cell.connectTo(next);
-          this.kill(cell);
+          return cell;
         }
       }
     }
