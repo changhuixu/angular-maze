@@ -42,6 +42,7 @@ export class Cell {
   ) {}
 
   connectTo(another: Cell) {
+    if (!another) return;
     if (this.row === another.row) {
       if (this.col - 1 === another.col) {
         this.westEdge = false;

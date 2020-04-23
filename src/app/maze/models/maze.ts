@@ -78,10 +78,12 @@ export class Maze {
     }
   }
   private kill(current: Cell) {
-    const next = current.neighbors.find(c => !c.visited);
-    if (next) {
-      current.connectTo(next);
-      this.kill(next);
+    while (current) {
+      const next = current.neighbors.find(c => !c.visited);
+      if (next) {
+        current.connectTo(next);
+      }
+      current = next;
     }
   }
   private hunt(): Cell {
