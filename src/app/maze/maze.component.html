@@ -1,9 +1,9 @@
 <div style="text-align: center;">
   <div class="maze-form">
     <label for="nRow"># Rows</label>
-    <input id="nRow" type="number" [(ngModel)]="row" min="1" max="100" />
+    <input id="nRow" type="number" [(ngModel)]="row" min="1" max="150" />
     <label for="nCol"># Columns</label>
-    <input id="nCol" type="number" [(ngModel)]="col" min="1" max="100" />
+    <input id="nCol" type="number" [(ngModel)]="col" min="1" max="150" />
     <button type="button" (click)="drawMaze()">New Maze</button>
     <button type="button" (click)="drawSolution()">Solution</button>
     <button type="button" (click)="test()" *ngIf="showTestButton">Test</button>
@@ -16,6 +16,7 @@
       <div><span (click)="move('Up')">⬆️</span></div>
       <div>
         <span (click)="move('Left')">⬅️</span>
+        <span (click)="clearMyPath()">🔄</span>
         <span (click)="move('Right')">➡️</span>
       </div>
       <div><span (click)="move('Down')">⬇️</span></div>

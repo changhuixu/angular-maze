@@ -71,11 +71,10 @@ export class Maze {
   }
 
   private kill(current: Cell) {
-    const unvisitedNeighbors = current.neighbors.filter(c => !c.visited);
-    if (unvisitedNeighbors.length) {
-      const nextCell = unvisitedNeighbors[0];
-      current.connectTo(nextCell);
-      this.kill(nextCell);
+    const next = current.neighbors.find(c => !c.visited);
+    if (next) {
+      current.connectTo(next);
+      this.kill(next);
     } else {
       this.hunt();
     }
@@ -88,9 +87,9 @@ export class Maze {
         if (cell.visited) {
           continue;
         }
-        const visitedNeighbors = cell.neighbors.filter(c => c.visited);
-        if (visitedNeighbors.length) {
-          cell.connectTo(visitedNeighbors[0]);
+        const next = cell.neighbors.find(c => c.visited);
+        if (next) {
+          cell.connectTo(next);
           this.kill(cell);
         }
       }

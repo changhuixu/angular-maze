@@ -132,6 +132,13 @@ export class MazeComponent implements OnInit, AfterViewInit {
     }
   }
 
+  clearMyPath() {
+    if (!this.gameOver) {
+      this.drawPath(this.myPath, this.cellBackground);
+      this.initPlay();
+    }
+  }
+
   drawSolution(
     color = this.solutionPathColor,
     lineThickness = this.solutionPathThickness
@@ -211,12 +218,12 @@ export class MazeComponent implements OnInit, AfterViewInit {
   }
 
   private validateInputs() {
-    if (isNaN(this.row) || this.row < 1 || this.row > 88) {
-      alert('#Rows should be an integer between 1 and 88.');
+    if (isNaN(this.row) || this.row < 1 || this.row > 150) {
+      alert('#Rows should be an integer between 1 and 150.');
       this.row = 15;
     }
-    if (isNaN(this.col) || this.col < 1 || this.col > 88) {
-      alert('#Columns should be an integer between 1 and 88.');
+    if (isNaN(this.col) || this.col < 1 || this.col > 150) {
+      alert('#Columns should be an integer between 1 and 150.');
       this.col = 15;
     }
     this.row = ~~this.row;
