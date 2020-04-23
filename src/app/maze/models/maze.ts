@@ -27,7 +27,7 @@ export class Maze {
     // generate maze
     this.randomRowNumbers = Utils.shuffleArray([...Array(this.nRow).keys()]);
     this.randomColNumbers = Utils.shuffleArray([...Array(this.nCol).keys()]);
-    this.huntAndKill(this.randomCell); // hunt-and-kill starting with a random Cell
+    this.kill(this.randomCell); // hunt-and-kill starts with kill mode from a random Cell
   }
 
   get firstCell(): Cell {
@@ -70,26 +70,28 @@ export class Maze {
     return path.reverse();
   }
 
-  private huntAndKill(current: Cell) {
+  private kill(current: Cell) {
     const unvisitedNeighbors = current.neighbors.filter(c => !c.visited);
     if (unvisitedNeighbors.length) {
-      // Kill
       const nextCell = unvisitedNeighbors[0];
       current.connectTo(nextCell);
-      this.huntAndKill(nextCell);
+      this.kill(nextCell);
     } else {
-      // Hunt
-      for (let huntRow of this.randomRowNumbers) {
-        for (let huntColumn of this.randomColNumbers) {
-          const cell = this.cells[huntRow][huntColumn];
-          if (cell.visited) {
-            continue;
-          }
-          const visitedNeighbors = cell.neighbors.filter(c => c.visited);
-          if (visitedNeighbors.length) {
-            cell.connectTo(visitedNeighbors[0]);
-            this.huntAndKill(cell);
-          }
+      this.hunt();
+    }
+  }
+
+  private hunt() {
+    for (let huntRow of this.randomRowNumbers) {
+      for (let huntColumn of this.randomColNumbers) {
+        const cell = this.cells[huntRow][huntColumn];
+        if (cell.visited) {
+          continue;
+        }
+        const visitedNeighbors = cell.neighbors.filter(c => c.visited);
+        if (visitedNeighbors.length) {
+          cell.connectTo(visitedNeighbors[0]);
+          this.kill(cell);
         }
       }
     }
