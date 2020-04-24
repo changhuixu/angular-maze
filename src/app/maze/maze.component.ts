@@ -24,6 +24,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
   private myPath: Cell[] = [];
   private currentCell: Cell;
   showTestButton = false;
+  busy = false;
 
   constructor() {
     if (!environment.production) {
@@ -40,6 +41,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
   }
 
   drawMaze() {
+    this.busy = true;
     this.validateInputs();
 
     this.maze = new Maze(this.row, this.col);
@@ -56,6 +58,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
     this.maze.cells.forEach(x => x.forEach(c => this.draw(c)));
 
     this.initPlay();
+    this.busy = false;
   }
 
   initPlay() {
@@ -132,10 +135,12 @@ export class MazeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  clearMyPath() {
-    if (!this.gameOver) {
+  undo(nSteps = 5) {
+    if (!this.gameOver && this.myPath.length > nSteps) {
       this.drawPath(this.myPath, this.cellBackground);
-      this.initPlay();
+      this.myPath.splice(-nSteps);
+      this.drawPath(this.myPath);
+      this.currentCell = this.myPath[this.myPath.length - 1];
     }
   }
 
@@ -226,11 +231,17 @@ export class MazeComponent implements OnInit, AfterViewInit {
       alert('Please enter a positive number for #Columns.');
       this.col = 15;
     }
+    if (this.row > 500 || this.col > 500) {
+      alert('Size too large. You may crash the browser...');
+      this.row = 15;
+      this.col = 15;
+    }
     this.row = ~~this.row;
     this.col = ~~this.col;
   }
 
   test() {
+    this.busy = true;
     const cellsHaveFourEdges: Cell[] = [];
     let hasLoop = false;
     const size = 50;
@@ -265,5 +276,6 @@ export class MazeComponent implements OnInit, AfterViewInit {
     }
 
     console.log(`testing has finished`);
+    this.busy = false;
   }
 }
