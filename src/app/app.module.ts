@@ -11,6 +11,7 @@ import { CanvasComponent } from './candy/canvas/canvas.component';
 import { ScrambleSquaresComponent } from './squares/scramble-squares/scramble-squares.component';
 import { SquaresComponent } from './squares/squares.component';
 import { ImageTilesComponent } from './squares/image-tiles/image-tiles.component';
+import { MathComponent } from './math/math.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ImageTilesComponent } from './squares/image-tiles/image-tiles.component
     CanvasComponent,
     ScrambleSquaresComponent,
     SquaresComponent,
-    ImageTilesComponent
+    ImageTilesComponent,
+    MathComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,10 +32,11 @@ import { ImageTilesComponent } from './squares/image-tiles/image-tiles.component
       { path: '', redirectTo: 'maze', pathMatch: 'full' },
       { path: 'maze', component: MazeComponent },
       { path: 'candy', component: CandyComponent },
+      { path: 'math', component: MathComponent },
       { path: 'square', component: SquaresComponent },
-      { path: '**', redirectTo: '' }
-    ])
+      { path: '**', redirectTo: '' },
+    ]),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
