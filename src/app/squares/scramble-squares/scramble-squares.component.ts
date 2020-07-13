@@ -118,11 +118,11 @@ export class ScrambleSquaresComponent implements OnInit {
       dropIndex > dragIndex ? dropElement.nextSibling : dropElement
     );
 
-    this.placeholder.enter(
-      drag,
-      drag.element.nativeElement.offsetLeft,
-      drag.element.nativeElement.offsetTop
-    );
+    // this.placeholder.enter(
+    //   drag,
+    //   drag.element.nativeElement.offsetLeft,
+    //   drag.element.nativeElement.offsetTop
+    // );
     return false;
   };
 
