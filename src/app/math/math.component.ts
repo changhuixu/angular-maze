@@ -10,12 +10,16 @@ export class MathComponent implements OnInit {
   nSub = 10;
   additions: string[] = [];
   subtractions: string[] = [];
+  multiplications: string[] = [];
+  divisions: string[] = [];
 
   constructor() {}
 
   ngOnInit(): void {
     this.getAdditions();
     this.getSubtractions();
+    this.getMultiplications();
+    this.getDivisions();
   }
 
   getAdditions() {
@@ -36,6 +40,26 @@ export class MathComponent implements OnInit {
       let b = this.randomIntBetween(min, max);
       let s = a > b ? `${a} - ${b}` : `${b} - ${a}`;
       this.subtractions.push(s);
+    }
+  }
+
+  getMultiplications() {
+    const max = 100;
+    const min = 1;
+    for (let i = 0; i < this.nAdd; i++) {
+      let a = this.randomIntBetween(min, max);
+      let b = this.randomIntBetween(min, max);
+      this.multiplications.push(`${a} &times; ${b}`);
+    }
+  }
+
+  getDivisions() {
+    const max = 10;
+    const min = 1;
+    for (let i = 0; i < this.nAdd; i++) {
+      let a = this.randomIntBetween(min, max);
+      let b = this.randomIntBetween(min, max);
+      this.divisions.push(`${a * b} &div; ${b}`);
     }
   }
 
