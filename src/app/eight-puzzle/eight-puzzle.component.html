@@ -1,0 +1,49 @@
+<div
+  (window:resize)="onResize($event)"
+  [style.height.px]="tileSize"
+  [style.width.px]="tileSize"
+  style="display: flex; flex-direction: column"
+>
+  <div style="display: flex; flex-direction: row; flex-grow: 1">
+    <app-eight-puzzle-tile
+      [id]="0"
+      [letter]="letters[0]"
+    ></app-eight-puzzle-tile>
+    <app-eight-puzzle-tile
+      [id]="1"
+      [letter]="letters[1]"
+    ></app-eight-puzzle-tile>
+    <app-eight-puzzle-tile
+      [id]="2"
+      [letter]="letters[2]"
+    ></app-eight-puzzle-tile>
+  </div>
+  <div style="display: flex; flex-direction: row; flex-grow: 1">
+    <app-eight-puzzle-tile
+      [id]="3"
+      [letter]="letters[3]"
+    ></app-eight-puzzle-tile>
+    <app-eight-puzzle-tile
+      [id]="4"
+      [letter]="letters[4]"
+    ></app-eight-puzzle-tile>
+    <app-eight-puzzle-tile
+      [id]="5"
+      [letter]="letters[5]"
+    ></app-eight-puzzle-tile>
+  </div>
+  <div style="display: flex; flex-direction: row; flex-grow: 1">
+    <app-eight-puzzle-tile
+      [id]="6"
+      [letter]="letters[6]"
+    ></app-eight-puzzle-tile>
+    <app-eight-puzzle-tile
+      [id]="7"
+      [letter]="letters[7]"
+    ></app-eight-puzzle-tile>
+    <app-eight-puzzle-tile
+      [id]="8"
+      [letter]="letters[8]"
+    ></app-eight-puzzle-tile>
+  </div>
+</div>

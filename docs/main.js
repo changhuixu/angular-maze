@@ -1,26 +1,5 @@
+"use strict";
 (self["webpackChunkangular_maze"] = self["webpackChunkangular_maze"] || []).push([["main"],{
-
-/***/ 8255:
-/*!*******************************************************!*\
-  !*** ./$_lazy_route_resources/ lazy namespace object ***!
-  \*******************************************************/
-/***/ ((module) => {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncaught exception popping up in devtools
-	return Promise.resolve().then(() => {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	});
-}
-webpackEmptyAsyncContext.keys = () => ([]);
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 8255;
-module.exports = webpackEmptyAsyncContext;
-
-/***/ }),
 
 /***/ 5041:
 /*!**********************************!*\
@@ -28,19 +7,18 @@ module.exports = webpackEmptyAsyncContext;
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppComponent": () => (/* binding */ AppComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 2816);
 
 
 class AppComponent {
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 17, vars: 0, consts: [[2, "text-align", "center", "margin-bottom", "0.25rem"], ["href", "https://github.com/changhuixu/angular-maze", "title", "git repo"], [2, "text-align", "center"], ["routerLink", "maze", "routerLinkActive", "active"], [2, "width", "1rem", "display", "inline-block"], ["routerLink", "candy", "routerLinkActive", "active"], ["routerLink", "math", "routerLinkActive", "active"], ["routerLink", "square", "routerLinkActive", "active"], [2, "margin", "0 auto"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 20, vars: 0, consts: [[2, "text-align", "center", "margin-bottom", "0.25rem"], ["href", "https://github.com/changhuixu/angular-maze", "title", "git repo"], [2, "text-align", "center"], ["routerLink", "maze", "routerLinkActive", "active"], [2, "width", "1rem", "display", "inline-block"], ["routerLink", "candy", "routerLinkActive", "active"], ["routerLink", "math", "routerLinkActive", "active"], ["routerLink", "8-puzzle", "routerLinkActive", "active"], ["routerLink", "square", "routerLinkActive", "active"], [2, "margin", "0 auto"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " GitHub Repo ");
@@ -60,11 +38,15 @@ AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "div", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Squares");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "8 Puzzle");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "a", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Squares");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "router-outlet");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkWithHref, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkActive, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterOutlet], styles: ["nav[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\r\n  display: inline-block;\r\n  color: #000;\r\n  background: #dbeccd;\r\n  padding: 0.5rem 1rem;\r\n  width: 5rem;\r\n  text-decoration: none;\r\n  white-space: nowrap;\r\n}\r\n\r\nnav[_ngcontent-%COMP%]   a.active[_ngcontent-%COMP%] {\r\n  background-color: #4caf50;\r\n  color: white;\r\n  font-weight: 500;\r\n}\r\n\r\nnav[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover:not(.active) {\r\n  background-color: #8cad70;\r\n  color: white;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UscUJBQXFCO0VBQ3JCLFdBQVc7RUFDWCxtQkFBbUI7RUFDbkIsb0JBQW9CO0VBQ3BCLFdBQVc7RUFDWCxxQkFBcUI7RUFDckIsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtBQUNkIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibmF2IGEge1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBjb2xvcjogIzAwMDtcclxuICBiYWNrZ3JvdW5kOiAjZGJlY2NkO1xyXG4gIHBhZGRpbmc6IDAuNXJlbSAxcmVtO1xyXG4gIHdpZHRoOiA1cmVtO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcblxyXG5uYXYgYS5hY3RpdmUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0Y2FmNTA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbn1cclxuXHJcbm5hdiBhOmhvdmVyOm5vdCguYWN0aXZlKSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzhjYWQ3MDtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuIl19 */"] });
 
@@ -77,15 +59,14 @@ AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["�
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ 3679);
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/cdk/drag-drop */ 7310);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/router */ 9895);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/platform-browser */ 318);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ 587);
+/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/drag-drop */ 4941);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ 2816);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _maze_maze_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./maze/maze.component */ 374);
 /* harmony import */ var _candy_candy_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./candy/candy.component */ 3006);
@@ -94,7 +75,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _squares_squares_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./squares/squares.component */ 2457);
 /* harmony import */ var _squares_image_tiles_image_tiles_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./squares/image-tiles/image-tiles.component */ 1442);
 /* harmony import */ var _math_math_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./math/math.component */ 8167);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _eight_puzzle_eight_puzzle_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./eight-puzzle/eight-puzzle.component */ 4365);
+/* harmony import */ var _eight_puzzle_eight_puzzle_tile_eight_puzzle_tile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./eight-puzzle/eight-puzzle-tile/eight-puzzle-tile.component */ 5059);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 3184);
+
+
 
 
 
@@ -112,30 +97,33 @@ __webpack_require__.r(__webpack_exports__);
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent] });
-AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineInjector"]({ imports: [[
-            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__.BrowserModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormsModule,
-            _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_11__.DragDropModule,
-            _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterModule.forRoot([
+AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent] });
+AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({ imports: [[
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__.BrowserModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_12__.FormsModule,
+            _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_13__.DragDropModule,
+            _angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule.forRoot([
                 { path: '', redirectTo: 'maze', pathMatch: 'full' },
                 { path: 'maze', component: _maze_maze_component__WEBPACK_IMPORTED_MODULE_1__.MazeComponent },
                 { path: 'candy', component: _candy_candy_component__WEBPACK_IMPORTED_MODULE_2__.CandyComponent },
                 { path: 'math', component: _math_math_component__WEBPACK_IMPORTED_MODULE_7__.MathComponent },
+                { path: '8-puzzle', component: _eight_puzzle_eight_puzzle_component__WEBPACK_IMPORTED_MODULE_8__.EightPuzzleComponent },
                 { path: 'square', component: _squares_squares_component__WEBPACK_IMPORTED_MODULE_5__.SquaresComponent },
                 { path: '**', redirectTo: '' },
             ]),
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent,
         _maze_maze_component__WEBPACK_IMPORTED_MODULE_1__.MazeComponent,
         _candy_candy_component__WEBPACK_IMPORTED_MODULE_2__.CandyComponent,
         _candy_canvas_canvas_component__WEBPACK_IMPORTED_MODULE_3__.CanvasComponent,
         _squares_scramble_squares_scramble_squares_component__WEBPACK_IMPORTED_MODULE_4__.ScrambleSquaresComponent,
         _squares_squares_component__WEBPACK_IMPORTED_MODULE_5__.SquaresComponent,
         _squares_image_tiles_image_tiles_component__WEBPACK_IMPORTED_MODULE_6__.ImageTilesComponent,
-        _math_math_component__WEBPACK_IMPORTED_MODULE_7__.MathComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__.BrowserModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_10__.FormsModule,
-        _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_11__.DragDropModule, _angular_router__WEBPACK_IMPORTED_MODULE_12__.RouterModule] }); })();
+        _math_math_component__WEBPACK_IMPORTED_MODULE_7__.MathComponent,
+        _eight_puzzle_eight_puzzle_component__WEBPACK_IMPORTED_MODULE_8__.EightPuzzleComponent,
+        _eight_puzzle_eight_puzzle_tile_eight_puzzle_tile_component__WEBPACK_IMPORTED_MODULE_9__.EightPuzzleTileComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__.BrowserModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_12__.FormsModule,
+        _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_13__.DragDropModule, _angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule] }); })();
 
 
 /***/ }),
@@ -146,14 +134,13 @@ AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵ
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CandyComponent": () => (/* binding */ CandyComponent)
 /* harmony export */ });
 /* harmony import */ var _canvas_canvas_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./canvas/canvas.component */ 2204);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 3679);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 587);
 
 
 
@@ -205,13 +192,12 @@ CandyComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__[
   \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CanvasComponent": () => (/* binding */ CanvasComponent)
 /* harmony export */ });
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models */ 6322);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
 
 
 class CanvasComponent {
@@ -294,7 +280,6 @@ CanvasComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "CandyText": () => (/* binding */ CandyText)
@@ -342,7 +327,6 @@ class CandyText {
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Position": () => (/* reexport safe */ _position__WEBPACK_IMPORTED_MODULE_0__.Position),
@@ -365,7 +349,6 @@ __webpack_require__.r(__webpack_exports__);
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Particle": () => (/* binding */ Particle)
@@ -418,7 +401,6 @@ class Particle {
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Position": () => (/* binding */ Position)
@@ -433,19 +415,249 @@ class Position {
 
 /***/ }),
 
+/***/ 5059:
+/*!*******************************************************************************!*\
+  !*** ./src/app/eight-puzzle/eight-puzzle-tile/eight-puzzle-tile.component.ts ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EightPuzzleTileComponent": () => (/* binding */ EightPuzzleTileComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _services_eight_puzzle_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/eight-puzzle.services */ 32);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 6362);
+
+
+
+const _c0 = function (a0) { return { empty: a0 }; };
+class EightPuzzleTileComponent {
+    constructor(svc) {
+        this.svc = svc;
+        this.id = 0;
+        this.letter = '';
+    }
+    ngOnInit() { }
+    move() {
+        this.svc.move(this.id);
+        if (this.svc.isWinning()) {
+            alert('Success');
+        }
+    }
+}
+EightPuzzleTileComponent.ɵfac = function EightPuzzleTileComponent_Factory(t) { return new (t || EightPuzzleTileComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_services_eight_puzzle_services__WEBPACK_IMPORTED_MODULE_0__.EightPuzzleService)); };
+EightPuzzleTileComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: EightPuzzleTileComponent, selectors: [["app-eight-puzzle-tile"]], hostBindings: function EightPuzzleTileComponent_HostBindings(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function EightPuzzleTileComponent_click_HostBindingHandler($event) { return ctx.move($event); });
+    } }, inputs: { id: "id", letter: "letter" }, decls: 2, vars: 4, consts: [[1, "tile", 3, "ngClass"]], template: function EightPuzzleTileComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](2, _c0, !(ctx.letter == null ? null : ctx.letter.trim())));
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx.letter, "\n");
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgClass], styles: ["[_nghost-%COMP%] {\r\n  display: flex;\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.tile[_ngcontent-%COMP%] {\r\n  display: flex;\r\n  flex-grow: 1;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: 4rem;\r\n  font-family: sans-serif;\r\n  font-weight: bold;\r\n  -webkit-user-select: none;\r\n          user-select: none;\r\n  color: #dad4ef;\r\n  background: #456990;\r\n  border: 1px solid #028090;\r\n  cursor: pointer;\r\n}\r\n\r\n.empty[_ngcontent-%COMP%] {\r\n  background: #dad4ef;\r\n  border: 2px solid #114b5f;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVpZ2h0LXB1enpsZS10aWxlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsWUFBWTtFQUNaLFdBQVc7QUFDYjs7QUFFQTtFQUNFLGFBQWE7RUFDYixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLHVCQUF1QjtFQUN2QixlQUFlO0VBQ2YsdUJBQXVCO0VBQ3ZCLGlCQUFpQjtFQUNqQix5QkFBaUI7VUFBakIsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxtQkFBbUI7RUFDbkIseUJBQXlCO0VBQ3pCLGVBQWU7QUFDakI7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIseUJBQXlCO0FBQzNCIiwiZmlsZSI6ImVpZ2h0LXB1enpsZS10aWxlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyI6aG9zdCB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi50aWxlIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZ3JvdzogMTtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIGZvbnQtc2l6ZTogNHJlbTtcclxuICBmb250LWZhbWlseTogc2Fucy1zZXJpZjtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICB1c2VyLXNlbGVjdDogbm9uZTtcclxuICBjb2xvcjogI2RhZDRlZjtcclxuICBiYWNrZ3JvdW5kOiAjNDU2OTkwO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICMwMjgwOTA7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uZW1wdHkge1xyXG4gIGJhY2tncm91bmQ6ICNkYWQ0ZWY7XHJcbiAgYm9yZGVyOiAycHggc29saWQgIzExNGI1ZjtcclxufVxyXG4iXX0= */"] });
+
+
+/***/ }),
+
+/***/ 4365:
+/*!********************************************************!*\
+  !*** ./src/app/eight-puzzle/eight-puzzle.component.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EightPuzzleComponent": () => (/* binding */ EightPuzzleComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _services_eight_puzzle_services__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./services/eight-puzzle.services */ 32);
+/* harmony import */ var _eight_puzzle_tile_eight_puzzle_tile_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eight-puzzle-tile/eight-puzzle-tile.component */ 5059);
+
+
+
+class EightPuzzleComponent {
+    constructor(svc) {
+        this.svc = svc;
+        this.tileSize = 0;
+        this.letters = [];
+    }
+    ngOnInit() {
+        this.tileSize = Math.min(window.innerWidth, window.innerHeight) * 0.9;
+        this.letters = this.svc.randomize();
+    }
+    onResize(event) {
+        this.ngOnInit();
+    }
+}
+EightPuzzleComponent.ɵfac = function EightPuzzleComponent_Factory(t) { return new (t || EightPuzzleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_eight_puzzle_services__WEBPACK_IMPORTED_MODULE_0__.EightPuzzleService)); };
+EightPuzzleComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: EightPuzzleComponent, selectors: [["app-eight-puzzle"]], hostBindings: function EightPuzzleComponent_HostBindings(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("resize", function EightPuzzleComponent_resize_HostBindingHandler($event) { return ctx.onResize($event); }, false, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresolveWindow"]);
+    } }, decls: 13, vars: 22, consts: [[2, "display", "flex", "flex-direction", "column", 3, "resize"], [2, "display", "flex", "flex-direction", "row", "flex-grow", "1"], [3, "id", "letter"]], template: function EightPuzzleComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("resize", function EightPuzzleComponent_Template_div_resize_0_listener($event) { return ctx.onResize($event); }, false, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵresolveWindow"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](3, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](4, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](6, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](7, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](8, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](10, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](11, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](12, "app-eight-puzzle-tile", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵstyleProp"]("height", ctx.tileSize, "px")("width", ctx.tileSize, "px");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 0)("letter", ctx.letters[0]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 1)("letter", ctx.letters[1]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 2)("letter", ctx.letters[2]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 3)("letter", ctx.letters[3]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 4)("letter", ctx.letters[4]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 5)("letter", ctx.letters[5]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 6)("letter", ctx.letters[6]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 7)("letter", ctx.letters[7]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("id", 8)("letter", ctx.letters[8]);
+    } }, directives: [_eight_puzzle_tile_eight_puzzle_tile_component__WEBPACK_IMPORTED_MODULE_1__.EightPuzzleTileComponent], styles: ["[_nghost-%COMP%] {\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin: 1rem;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImVpZ2h0LXB1enpsZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLFlBQVk7QUFDZCIsImZpbGUiOiJlaWdodC1wdXp6bGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBtYXJnaW46IDFyZW07XHJcbn1cclxuIl19 */"] });
+
+
+/***/ }),
+
+/***/ 32:
+/*!****************************************************************!*\
+  !*** ./src/app/eight-puzzle/services/eight-puzzle.services.ts ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EightPuzzleService": () => (/* binding */ EightPuzzleService)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
+
+class EightPuzzleService {
+    constructor() {
+        this._letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', ''];
+        this._win = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', ''];
+        this.n = this._letters.length;
+        this.rows = Math.sqrt(this.n);
+    }
+    getLetter(i) {
+        return i < this.n ? this._letters[i] : '';
+    }
+    getCoordinate(i) {
+        const x = Math.floor(i / this.rows);
+        const y = i - this.rows * x;
+        return [x, y];
+    }
+    randomize() {
+        let currentIndex = this.n;
+        while (currentIndex != 0) {
+            const i = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [this._letters[currentIndex], this._letters[i]] = [
+                this._letters[i],
+                this._letters[currentIndex],
+            ];
+        }
+        return this._letters;
+    }
+    canMove(i) {
+        var _a, _b, _c, _d, _e;
+        const [x, y] = this.getCoordinate(i);
+        if (x >= this.rows || y >= this.rows || !((_a = this._letters[i]) === null || _a === void 0 ? void 0 : _a.trim())) {
+            return false;
+        }
+        // down
+        if (x < this.rows - 1 && !((_b = this._letters[(x + 1) * this.rows + y]) === null || _b === void 0 ? void 0 : _b.trim())) {
+            return true;
+        }
+        // up
+        if (x > 0 && !((_c = this._letters[(x - 1) * this.rows + y]) === null || _c === void 0 ? void 0 : _c.trim())) {
+            return true;
+        }
+        // left
+        if (y > 0 && !((_d = this._letters[x * this.rows + y - 1]) === null || _d === void 0 ? void 0 : _d.trim())) {
+            return true;
+        } // right
+        if (y < this.rows - 1 && !((_e = this._letters[x * this.rows + y + 1]) === null || _e === void 0 ? void 0 : _e.trim())) {
+            return true;
+        }
+        return false;
+    }
+    move(i) {
+        var _a, _b, _c, _d;
+        if (this.isWinning()) {
+            return;
+        }
+        const [x, y] = this.getCoordinate(i);
+        // down
+        if (x < this.rows - 1 && !((_a = this._letters[(x + 1) * this.rows + y]) === null || _a === void 0 ? void 0 : _a.trim())) {
+            [this._letters[i], this._letters[(x + 1) * this.rows + y]] = [
+                this._letters[(x + 1) * this.rows + y],
+                this._letters[i],
+            ];
+        }
+        // up
+        if (x > 0 && !((_b = this._letters[(x - 1) * this.rows + y]) === null || _b === void 0 ? void 0 : _b.trim())) {
+            [this._letters[i], this._letters[(x - 1) * this.rows + y]] = [
+                this._letters[(x - 1) * this.rows + y],
+                this._letters[i],
+            ];
+        }
+        // left
+        if (y > 0 && !((_c = this._letters[x * this.rows + y - 1]) === null || _c === void 0 ? void 0 : _c.trim())) {
+            [this._letters[i], this._letters[x * this.rows + y - 1]] = [
+                this._letters[x * this.rows + y - 1],
+                this._letters[i],
+            ];
+        }
+        // right
+        if (y < this.rows - 1 && !((_d = this._letters[x * this.rows + y + 1]) === null || _d === void 0 ? void 0 : _d.trim())) {
+            [this._letters[i], this._letters[x * this.rows + y + 1]] = [
+                this._letters[x * this.rows + y + 1],
+                this._letters[i],
+            ];
+        }
+    }
+    isWinning() {
+        return this._letters.every((e, i) => e === this._win[i]);
+    }
+}
+EightPuzzleService.ɵfac = function EightPuzzleService_Factory(t) { return new (t || EightPuzzleService)(); };
+EightPuzzleService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: EightPuzzleService, factory: EightPuzzleService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
 /***/ 8167:
 /*!****************************************!*\
   !*** ./src/app/math/math.component.ts ***!
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MathComponent": () => (/* binding */ MathComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 6362);
 
 
 function MathComponent_p_4_Template(rf, ctx) { if (rf & 1) {
@@ -573,16 +785,15 @@ MathComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MazeComponent": () => (/* binding */ MazeComponent)
 /* harmony export */ });
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models */ 4915);
 /* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ 2340);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 3679);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 587);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 6362);
 
 
 
@@ -891,7 +1102,6 @@ MazeComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Cell": () => (/* binding */ Cell)
@@ -1008,7 +1218,6 @@ class Cell {
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Cell": () => (/* reexport safe */ _cell__WEBPACK_IMPORTED_MODULE_0__.Cell),
@@ -1031,7 +1240,6 @@ __webpack_require__.r(__webpack_exports__);
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "keyboardMap": () => (/* binding */ keyboardMap)
@@ -1060,7 +1268,6 @@ const keyboardMap = {
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Maze": () => (/* binding */ Maze)
@@ -1202,12 +1409,11 @@ class Utils {
   \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ImageTilesComponent": () => (/* binding */ ImageTilesComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
 
 class ImageTilesComponent {
     constructor() {
@@ -1333,15 +1539,14 @@ ImageTilesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE
   \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ScrambleSquaresComponent": () => (/* binding */ ScrambleSquaresComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/drag-drop */ 7310);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 7716);
-/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ 1386);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 8583);
+/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/cdk/drag-drop */ 4941);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ 5752);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 6362);
 
 
 
@@ -1514,12 +1719,11 @@ function __isInsideDropListClientRect(dropList, x, y) {
   \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SquaresComponent": () => (/* binding */ SquaresComponent)
 /* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
 /* harmony import */ var _image_tiles_image_tiles_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./image-tiles/image-tiles.component */ 1442);
 
 
@@ -1542,7 +1746,6 @@ SquaresComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1_
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "environment": () => (/* binding */ environment)
@@ -1571,10 +1774,9 @@ const environment = {
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ 9075);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ 318);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 3184);
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/app.module */ 6747);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./environments/environment */ 2340);
 
@@ -1592,8 +1794,6 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__.platformBrowser().bootstr
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
-/******/ "use strict";
-/******/ 
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
 /******/ __webpack_require__.O(0, ["vendor"], () => (__webpack_exec__(4431)));
 /******/ var __webpack_exports__ = __webpack_require__.O();

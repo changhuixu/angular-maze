@@ -12,6 +12,8 @@ import { ScrambleSquaresComponent } from './squares/scramble-squares/scramble-sq
 import { SquaresComponent } from './squares/squares.component';
 import { ImageTilesComponent } from './squares/image-tiles/image-tiles.component';
 import { MathComponent } from './math/math.component';
+import { EightPuzzleComponent } from './eight-puzzle/eight-puzzle.component';
+import { EightPuzzleTileComponent } from './eight-puzzle/eight-puzzle-tile/eight-puzzle-tile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { MathComponent } from './math/math.component';
     SquaresComponent,
     ImageTilesComponent,
     MathComponent,
+    EightPuzzleComponent,
+    EightPuzzleTileComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +37,7 @@ import { MathComponent } from './math/math.component';
       { path: 'maze', component: MazeComponent },
       { path: 'candy', component: CandyComponent },
       { path: 'math', component: MathComponent },
+      { path: '8-puzzle', component: EightPuzzleComponent },
       { path: 'square', component: SquaresComponent },
       { path: '**', redirectTo: '' },
     ]),
