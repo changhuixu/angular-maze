@@ -44,7 +44,7 @@ export class MathComponent implements OnInit {
   }
 
   getMultiplications() {
-    const max = 100;
+    const max = 200;
     const min = 1;
     for (let i = 0; i < this.nAdd; i++) {
       let a = this.randomIntBetween(min, max);
@@ -54,7 +54,7 @@ export class MathComponent implements OnInit {
   }
 
   getDivisions() {
-    const max = 10;
+    const max = 100;
     const min = 1;
     for (let i = 0; i < this.nAdd; i++) {
       let a = this.randomIntBetween(min, max);
