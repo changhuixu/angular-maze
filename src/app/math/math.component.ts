@@ -23,7 +23,7 @@ export class MathComponent implements OnInit {
   }
 
   getAdditions() {
-    const max = 10000;
+    const max = 1000;
     const min = 10;
     for (let i = 0; i < this.nAdd; i++) {
       let a = this.randomIntBetween(min, max);
@@ -33,7 +33,7 @@ export class MathComponent implements OnInit {
   }
 
   getSubtractions() {
-    const max = 10000;
+    const max = 1000;
     const min = 10;
     for (let i = 0; i < this.nAdd; i++) {
       let a = this.randomIntBetween(min, max);

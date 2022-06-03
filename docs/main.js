@@ -691,7 +691,7 @@ class MathComponent {
         this.getDivisions();
     }
     getAdditions() {
-        const max = 10000;
+        const max = 1000;
         const min = 10;
         for (let i = 0; i < this.nAdd; i++) {
             let a = this.randomIntBetween(min, max);
@@ -700,7 +700,7 @@ class MathComponent {
         }
     }
     getSubtractions() {
-        const max = 10000;
+        const max = 1000;
         const min = 10;
         for (let i = 0; i < this.nAdd; i++) {
             let a = this.randomIntBetween(min, max);
