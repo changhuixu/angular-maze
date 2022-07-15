@@ -18,7 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 class AppComponent {
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 20, vars: 0, consts: [[2, "text-align", "center", "margin-bottom", "0.25rem"], ["href", "https://github.com/changhuixu/angular-maze", "title", "git repo"], [2, "text-align", "center"], ["routerLink", "maze", "routerLinkActive", "active"], [2, "width", "1rem", "display", "inline-block"], ["routerLink", "candy", "routerLinkActive", "active"], ["routerLink", "math", "routerLinkActive", "active"], ["routerLink", "8-puzzle", "routerLinkActive", "active"], ["routerLink", "square", "routerLinkActive", "active"], [2, "margin", "0 auto"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 23, vars: 0, consts: [[2, "text-align", "center", "margin-bottom", "0.25rem"], ["href", "https://github.com/changhuixu/angular-maze", "title", "git repo"], [2, "text-align", "center"], ["routerLink", "maze", "routerLinkActive", "active"], [2, "width", "1rem", "display", "inline-block"], ["routerLink", "candy", "routerLinkActive", "active"], ["routerLink", "math1", "routerLinkActive", "active"], ["routerLink", "math2", "routerLinkActive", "active"], ["routerLink", "8-puzzle", "routerLinkActive", "active"], ["routerLink", "square", "routerLinkActive", "active"], [2, "margin", "0 auto"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0)(1, "a", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " GitHub Repo ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
@@ -35,14 +35,18 @@ AppComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "div", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "a", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "8 Puzzle");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Fractions");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "div", 4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "a", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Squares");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "8 Puzzle");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "a", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "Squares");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](19, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "router-outlet");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } }, dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterOutlet, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkWithHref, _angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterLinkActive], styles: ["nav[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\r\n  display: inline-block;\r\n  color: #000;\r\n  background: #dbeccd;\r\n  padding: 0.5rem 1rem;\r\n  width: 5rem;\r\n  text-decoration: none;\r\n  white-space: nowrap;\r\n}\r\n\r\nnav[_ngcontent-%COMP%]   a.active[_ngcontent-%COMP%] {\r\n  background-color: #4caf50;\r\n  color: white;\r\n  font-weight: 500;\r\n}\r\n\r\nnav[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover:not(.active) {\r\n  background-color: #8cad70;\r\n  color: white;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UscUJBQXFCO0VBQ3JCLFdBQVc7RUFDWCxtQkFBbUI7RUFDbkIsb0JBQW9CO0VBQ3BCLFdBQVc7RUFDWCxxQkFBcUI7RUFDckIsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLFlBQVk7RUFDWixnQkFBZ0I7QUFDbEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsWUFBWTtBQUNkIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsibmF2IGEge1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBjb2xvcjogIzAwMDtcclxuICBiYWNrZ3JvdW5kOiAjZGJlY2NkO1xyXG4gIHBhZGRpbmc6IDAuNXJlbSAxcmVtO1xyXG4gIHdpZHRoOiA1cmVtO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xyXG59XHJcblxyXG5uYXYgYS5hY3RpdmUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICM0Y2FmNTA7XHJcbiAgY29sb3I6IHdoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbn1cclxuXHJcbm5hdiBhOmhvdmVyOm5vdCguYWN0aXZlKSB7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzhjYWQ3MDtcclxuICBjb2xvcjogd2hpdGU7XHJcbn1cclxuIl19 */"] });
 
@@ -59,10 +63,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppModule": () => (/* binding */ AppModule)
 /* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/platform-browser */ 4497);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ 2508);
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/drag-drop */ 7727);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ 124);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/platform-browser */ 4497);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/forms */ 2508);
+/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/cdk/drag-drop */ 7727);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/router */ 124);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component */ 5041);
 /* harmony import */ var _maze_maze_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./maze/maze.component */ 374);
 /* harmony import */ var _candy_candy_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./candy/candy.component */ 3006);
@@ -70,10 +74,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _squares_scramble_squares_scramble_squares_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./squares/scramble-squares/scramble-squares.component */ 8567);
 /* harmony import */ var _squares_squares_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./squares/squares.component */ 2457);
 /* harmony import */ var _squares_image_tiles_image_tiles_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./squares/image-tiles/image-tiles.component */ 1442);
-/* harmony import */ var _math_math_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./math/math.component */ 8167);
+/* harmony import */ var _math1_math_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./math1/math.component */ 5591);
 /* harmony import */ var _eight_puzzle_eight_puzzle_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./eight-puzzle/eight-puzzle.component */ 4365);
 /* harmony import */ var _eight_puzzle_eight_puzzle_tile_eight_puzzle_tile_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./eight-puzzle/eight-puzzle-tile/eight-puzzle-tile.component */ 5059);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _math2_math2_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./math2/math2.component */ 7670);
+/* harmony import */ var _math_math_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./math/math.module */ 8216);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
 
 
 
@@ -93,31 +101,35 @@ __webpack_require__.r(__webpack_exports__);
 class AppModule {
 }
 AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
-AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent] });
-AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({ imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__.BrowserModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_12__.FormsModule,
-        _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_13__.DragDropModule,
-        _angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule.forRoot([
+AppModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent] });
+AppModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjector"]({ imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_13__.BrowserModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_14__.FormsModule,
+        _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_15__.DragDropModule,
+        _math_math_module__WEBPACK_IMPORTED_MODULE_11__.MathModule,
+        _angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule.forRoot([
             { path: '', redirectTo: 'maze', pathMatch: 'full' },
             { path: 'maze', component: _maze_maze_component__WEBPACK_IMPORTED_MODULE_1__.MazeComponent },
             { path: 'candy', component: _candy_candy_component__WEBPACK_IMPORTED_MODULE_2__.CandyComponent },
-            { path: 'math', component: _math_math_component__WEBPACK_IMPORTED_MODULE_7__.MathComponent },
+            { path: 'math1', component: _math1_math_component__WEBPACK_IMPORTED_MODULE_7__.MathComponent },
+            { path: 'math2', component: _math2_math2_component__WEBPACK_IMPORTED_MODULE_10__.Math2Component },
             { path: '8-puzzle', component: _eight_puzzle_eight_puzzle_component__WEBPACK_IMPORTED_MODULE_8__.EightPuzzleComponent },
             { path: 'square', component: _squares_squares_component__WEBPACK_IMPORTED_MODULE_5__.SquaresComponent },
             { path: '**', redirectTo: '' },
         ])] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent,
         _maze_maze_component__WEBPACK_IMPORTED_MODULE_1__.MazeComponent,
         _candy_candy_component__WEBPACK_IMPORTED_MODULE_2__.CandyComponent,
         _candy_canvas_canvas_component__WEBPACK_IMPORTED_MODULE_3__.CanvasComponent,
         _squares_scramble_squares_scramble_squares_component__WEBPACK_IMPORTED_MODULE_4__.ScrambleSquaresComponent,
         _squares_squares_component__WEBPACK_IMPORTED_MODULE_5__.SquaresComponent,
         _squares_image_tiles_image_tiles_component__WEBPACK_IMPORTED_MODULE_6__.ImageTilesComponent,
-        _math_math_component__WEBPACK_IMPORTED_MODULE_7__.MathComponent,
+        _math1_math_component__WEBPACK_IMPORTED_MODULE_7__.MathComponent,
         _eight_puzzle_eight_puzzle_component__WEBPACK_IMPORTED_MODULE_8__.EightPuzzleComponent,
-        _eight_puzzle_eight_puzzle_tile_eight_puzzle_tile_component__WEBPACK_IMPORTED_MODULE_9__.EightPuzzleTileComponent], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__.BrowserModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_12__.FormsModule,
-        _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_13__.DragDropModule, _angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule] }); })();
+        _eight_puzzle_eight_puzzle_tile_eight_puzzle_tile_component__WEBPACK_IMPORTED_MODULE_9__.EightPuzzleTileComponent,
+        _math2_math2_component__WEBPACK_IMPORTED_MODULE_10__.Math2Component], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_13__.BrowserModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_14__.FormsModule,
+        _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_15__.DragDropModule,
+        _math_math_module__WEBPACK_IMPORTED_MODULE_11__.MathModule, _angular_router__WEBPACK_IMPORTED_MODULE_16__.RouterModule] }); })();
 
 
 /***/ }),
@@ -627,10 +639,10 @@ EightPuzzleService.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE
 
 /***/ }),
 
-/***/ 8167:
-/*!****************************************!*\
-  !*** ./src/app/math/math.component.ts ***!
-  \****************************************/
+/***/ 5591:
+/*!*****************************************!*\
+  !*** ./src/app/math1/math.component.ts ***!
+  \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -755,6 +767,225 @@ MathComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.divisions);
     } }, dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_1__.NgForOf], styles: [".card-row[_ngcontent-%COMP%] {\r\n  display: flex;\r\n  flex-flow: row;\r\n  justify-content: space-around;\r\n  flex-wrap: wrap;\r\n  gap: 1rem;\r\n}\r\n\r\n.card[_ngcontent-%COMP%] {\r\n  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);\r\n  transition: 0.3s;\r\n  min-width: 5rem;\r\n  max-width: 20rem;\r\n  padding: 1rem 2rem;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-grow: 1;\r\n}\r\n\r\n.card[_ngcontent-%COMP%]:hover {\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hdGguY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7RUFDYixjQUFjO0VBQ2QsNkJBQTZCO0VBQzdCLGVBQWU7RUFDZixTQUFTO0FBQ1g7O0FBRUE7RUFDRSxpREFBaUQ7RUFDakQsZ0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsWUFBWTtBQUNkOztBQUVBO0VBQ0UsOENBQThDO0FBQ2hEIiwiZmlsZSI6Im1hdGguY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJkLXJvdyB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWZsb3c6IHJvdztcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgZ2FwOiAxcmVtO1xyXG59XHJcblxyXG4uY2FyZCB7XHJcbiAgYm94LXNoYWRvdzogMCAwLjI1cmVtIDAuNXJlbSAwIHJnYmEoMCwgMCwgMCwgMC4yKTtcclxuICB0cmFuc2l0aW9uOiAwLjNzO1xyXG4gIG1pbi13aWR0aDogNXJlbTtcclxuICBtYXgtd2lkdGg6IDIwcmVtO1xyXG4gIHBhZGRpbmc6IDFyZW0gMnJlbTtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgZmxleC1ncm93OiAxO1xyXG59XHJcblxyXG4uY2FyZDpob3ZlciB7XHJcbiAgYm94LXNoYWRvdzogMCAwLjVyZW0gMXJlbSAwIHJnYmEoMCwgMCwgMCwgMC4yKTtcclxufVxyXG4iXX0= */"] });
 
+
+/***/ }),
+
+/***/ 7670:
+/*!******************************************!*\
+  !*** ./src/app/math2/math2.component.ts ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Math2Component": () => (/* binding */ Math2Component)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var _math_math_directive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../math/math.directive */ 8588);
+
+
+
+function Math2Component_div_4_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "div", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const item_r1 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("appMath", item_r1);
+} }
+class Math2Component {
+    constructor() {
+        this.mathml = `<math xmlns="http://www.w3.org/1998/Math/MathML">
+<mfrac>
+  <mn>numerator1</mn>
+  <mn>denominator1</mn>
+</mfrac>
+<mo>operator</mo>
+<mfrac>
+  <mn>numerator2</mn>
+  <mn>denominator2</mn>
+</mfrac>
+<mo>=</mo>
+<mn>?</mn>
+</math>
+  `;
+        this.nAdd = 10;
+        this.nSub = 10;
+        this.additions = [];
+    }
+    ngOnInit() {
+        this.getAdditions();
+    }
+    getAdditions() {
+        const max = 25;
+        const min = 1;
+        for (let i = 0; i < this.nAdd; i++) {
+            let a = this.randomIntBetween(min, max);
+            let b = this.randomIntBetween(min, max);
+            let c = this.randomIntBetween(min, max);
+            let d = this.randomIntBetween(min, max);
+            this.additions.push(this.mathml
+                .replace('operator', '+')
+                .replace('numerator1', a.toString())
+                .replace('denominator1', b.toString())
+                .replace('numerator2', c.toString())
+                .replace('denominator2', d.toString()));
+        }
+    }
+    randomIntBetween(min, max) {
+        return ~~(Math.random() * (max - min + 1) + min);
+    }
+}
+Math2Component.ɵfac = function Math2Component_Factory(t) { return new (t || Math2Component)(); };
+Math2Component.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: Math2Component, selectors: [["app-math2"]], decls: 8, vars: 1, consts: [[2, "text-align", "center"], [1, "card-row"], [1, "card"], ["class", "equation", 4, "ngFor", "ngForOf"], [1, "equation"], [3, "appMath"]], template: function Math2Component_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "h2", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, "Fractions");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 1)(3, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](4, Math2Component_div_4_Template, 2, 1, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](5, "div", 2)(6, "div", 2)(7, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.additions);
+    } }, dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.NgForOf, _math_math_directive__WEBPACK_IMPORTED_MODULE_0__.MathDirective], styles: [".card-row[_ngcontent-%COMP%] {\r\n  display: flex;\r\n  flex-flow: row;\r\n  justify-content: space-around;\r\n  flex-wrap: wrap;\r\n  gap: 1rem;\r\n}\r\n\r\n.card[_ngcontent-%COMP%] {\r\n  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);\r\n  transition: 0.3s;\r\n  min-width: 5rem;\r\n  max-width: 20rem;\r\n  padding: 1rem 2rem;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-grow: 1;\r\n}\r\n\r\n.card[_ngcontent-%COMP%]:hover {\r\n  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.equation[_ngcontent-%COMP%] {\r\n  font-size: xx-large;\r\n  margin: 1rem 0;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1hdGgyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFhO0VBQ2IsY0FBYztFQUNkLDZCQUE2QjtFQUM3QixlQUFlO0VBQ2YsU0FBUztBQUNYOztBQUVBO0VBQ0UsaURBQWlEO0VBQ2pELGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLDhDQUE4QztBQUNoRDs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixjQUFjO0FBQ2hCIiwiZmlsZSI6Im1hdGgyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FyZC1yb3cge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1mbG93OiByb3c7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XHJcbiAgZmxleC13cmFwOiB3cmFwO1xyXG4gIGdhcDogMXJlbTtcclxufVxyXG5cclxuLmNhcmQge1xyXG4gIGJveC1zaGFkb3c6IDAgMC4yNXJlbSAwLjVyZW0gMCByZ2JhKDAsIDAsIDAsIDAuMik7XHJcbiAgdHJhbnNpdGlvbjogMC4zcztcclxuICBtaW4td2lkdGg6IDVyZW07XHJcbiAgbWF4LXdpZHRoOiAyMHJlbTtcclxuICBwYWRkaW5nOiAxcmVtIDJyZW07XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG4gIGZsZXgtZ3JvdzogMTtcclxufVxyXG5cclxuLmNhcmQ6aG92ZXIge1xyXG4gIGJveC1zaGFkb3c6IDAgMC41cmVtIDFyZW0gMCByZ2JhKDAsIDAsIDAsIDAuMik7XHJcbn1cclxuXHJcbi5lcXVhdGlvbiB7XHJcbiAgZm9udC1zaXplOiB4eC1sYXJnZTtcclxuICBtYXJnaW46IDFyZW0gMDtcclxufVxyXG4iXX0= */"] });
+
+
+/***/ }),
+
+/***/ 8588:
+/*!****************************************!*\
+  !*** ./src/app/math/math.directive.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MathDirective": () => (/* binding */ MathDirective)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
+/* harmony import */ var _math_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.service */ 7766);
+
+
+class MathDirective {
+    constructor(svc, elementRef) {
+        this.svc = svc;
+        this.appMath = '';
+        this.el = elementRef.nativeElement;
+    }
+    ngOnInit() {
+        this.render();
+    }
+    ngOnChanges(changes) {
+        if (changes && changes['appMath'] && changes['appMath'].currentValue) {
+            this.render();
+        }
+    }
+    render() {
+        this.svc
+            .registerMathJax()
+            .subscribe(() => this.svc.render(this.el, this.appMath));
+    }
+}
+MathDirective.ɵfac = function MathDirective_Factory(t) { return new (t || MathDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_math_service__WEBPACK_IMPORTED_MODULE_0__.MathService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__.ElementRef)); };
+MathDirective.ɵdir = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineDirective"]({ type: MathDirective, selectors: [["", "appMath", ""]], inputs: { appMath: "appMath" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]] });
+
+
+/***/ }),
+
+/***/ 8216:
+/*!*************************************!*\
+  !*** ./src/app/math/math.module.ts ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MathModule": () => (/* binding */ MathModule)
+/* harmony export */ });
+/* harmony import */ var _math_directive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./math.directive */ 8588);
+/* harmony import */ var _math_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./math.service */ 7766);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
+
+class MathModule {
+}
+MathModule.ɵfac = function MathModule_Factory(t) { return new (t || MathModule)(); };
+MathModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineNgModule"]({ type: MathModule });
+MathModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjector"]({ providers: [_math_service__WEBPACK_IMPORTED_MODULE_1__.MathService] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsetNgModuleScope"](MathModule, { declarations: [_math_directive__WEBPACK_IMPORTED_MODULE_0__.MathDirective], exports: [_math_directive__WEBPACK_IMPORTED_MODULE_0__.MathDirective] }); })();
+
+
+/***/ }),
+
+/***/ 7766:
+/*!**************************************!*\
+  !*** ./src/app/math/math.service.ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MathService": () => (/* binding */ MathService)
+/* harmony export */ });
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4666);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ 6067);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2560);
+
+
+
+class MathService {
+  constructor(document) {
+    this.document = document;
+    this.source = 'https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/mml-chtml.js';
+    this.integrity = 'sha256-CnzfCXjFj1REmPHgWvm/OQv8gFaxwbLKUi41yCU7N2s=';
+  }
+
+  registerMathJax() {
+    if (this.loaded$) {
+      return this.loaded$.asObservable();
+    }
+
+    this.loaded$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__.ReplaySubject();
+    const script = this.document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = this.source;
+    script.integrity = this.integrity;
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+
+    script.onload = () => {
+      this.loaded$.next(true);
+      this.loaded$.complete();
+    };
+
+    this.document.head.appendChild(script);
+    return this.loaded$.asObservable();
+  }
+
+  render(element, math) {
+    // Take initial typesetting which MathJax performs into account
+    window.MathJax.startup.promise.then(() => {
+      element.innerHTML = math;
+      window.MathJax.typesetPromise();
+    });
+  }
+
+}
+
+MathService.ɵfac = function MathService_Factory(t) {
+  return new (t || MathService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__.DOCUMENT));
+};
+
+MathService.ɵprov = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+  token: MathService,
+  factory: MathService.ɵfac,
+  providedIn: 'root'
+});
 
 /***/ }),
 
