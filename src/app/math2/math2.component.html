@@ -2,11 +2,15 @@
 
 <div class="card-row">
   <div class="card">
-    <div *ngFor="let item of additions" class="equation">
-      <div [appMath]="item"></div>
-    </div>
+    <div [appMath]="fracSimp"></div>
   </div>
-  <div class="card"></div>
-  <div class="card"></div>
-  <div class="card"></div>
+  <div class="card">
+    <div [appMath]="additions1"></div>
+  </div>
+  <div class="card">
+    <div [appMath]="additions2"></div>
+  </div>
+  <div class="card">
+    <div [appMath]="multiplications"></div>
+  </div>
 </div>

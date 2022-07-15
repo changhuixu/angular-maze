@@ -21,7 +21,8 @@
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
 }
 
-.equation {
-  font-size: xx-large;
-  margin: 1rem 0;
+::ng-deep .equation {
+  display: block !important;
+  font-size: xx-large !important;
+  margin: 1.5rem 0 !important;
 }

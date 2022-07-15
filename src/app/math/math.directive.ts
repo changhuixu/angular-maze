@@ -5,6 +5,7 @@ import {
   Input,
   ElementRef,
   SimpleChanges,
+  NgZone,
 } from '@angular/core';
 import { MathService } from './math.service';
 
@@ -15,7 +16,11 @@ export class MathDirective implements OnInit, OnChanges {
   @Input() appMath = '';
   private readonly el: HTMLElement;
 
-  constructor(private svc: MathService, elementRef: ElementRef) {
+  constructor(
+    private svc: MathService,
+    elementRef: ElementRef,
+    private ngZone: NgZone
+  ) {
     this.el = elementRef.nativeElement;
   }
 
@@ -30,8 +35,10 @@ export class MathDirective implements OnInit, OnChanges {
   }
 
   private render() {
-    this.svc
-      .registerMathJax()
-      .subscribe(() => this.svc.render(this.el, this.appMath));
+    this.ngZone.runOutsideAngular(() => {
+      this.svc
+        .registerMathJax()
+        .subscribe(() => this.svc.render(this.el, this.appMath));
+    });
   }
 }

@@ -4,6 +4,7 @@
         "ghpage",
         "mathjax",
         "mathml",
-        "mfrac"
+        "mfrac",
+        "mrow"
     ]
 }
