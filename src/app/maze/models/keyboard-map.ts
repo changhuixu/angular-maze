@@ -1,14 +1,29 @@
-export const keyboardMap = {
-  ArrowLeft: 'Left',
-  A: 'Left',
-  a: 'Left',
-  ArrowRight: 'Right',
-  D: 'Right',
-  d: 'Right',
-  ArrowUp: 'Up',
-  W: 'Up',
-  w: 'Up',
-  ArrowDown: 'Down',
-  S: 'Down',
-  s: 'Down',
-};
+export function keyboardMap(
+  key: string
+): 'Left' | 'Right' | 'Up' | 'Down' | '' {
+  switch (key) {
+    case 'ArrowLeft':
+    case 'A':
+    case 'a': {
+      return 'Left';
+    }
+    case 'ArrowRight':
+    case 'D':
+    case 'd': {
+      return 'Right';
+    }
+    case 'ArrowUp':
+    case 'W':
+    case 'w': {
+      return 'Up';
+    }
+    case 'ArrowDown':
+    case 'S':
+    case 's': {
+      return 'Down';
+    }
+    default: {
+      return '';
+    }
+  }
+}

@@ -3,12 +3,13 @@ import { CanvasComponent } from './canvas/canvas.component';
 
 @Component({
   selector: 'app-candy',
+  standalone: false,
   templateUrl: './candy.component.html',
-  styleUrls: ['./candy.component.css']
+  styleUrls: ['./candy.component.css'],
 })
 export class CandyComponent implements OnInit {
   name = 'Candy';
-  @ViewChild(CanvasComponent) c: CanvasComponent;
+  @ViewChild(CanvasComponent, { static: true }) c!: CanvasComponent;
   constructor() {}
 
   ngOnInit(): void {}

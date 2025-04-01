@@ -1,3 +1,3 @@
-export { Position } from './position';
-export { Particle } from './particle';
-export { CandyText } from './candy-text';
+export * from './candy-text';
+export * from './particle';
+export * from './position';

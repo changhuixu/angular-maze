@@ -1,25 +1,29 @@
 import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   OnInit,
-  AfterViewInit,
-  HostListener,
-  ChangeDetectionStrategy
 } from '@angular/core';
-import { Position, Particle, CandyText } from '../models';
+import { CandyText, Particle, Position } from '../models';
 
 @Component({
   selector: 'app-canvas',
   templateUrl: './canvas.component.html',
   styleUrls: ['./canvas.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
+  host: {
+    '(mouseenter)': 'startAnimation($event)',
+    '(mousemove)': 'calculateMouseRelativePositionInCanvas($event)',
+  },
 })
 export class CanvasComponent implements OnInit, AfterViewInit {
-  private canvas: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
-  private candy: CandyText;
+  private canvas!: HTMLCanvasElement;
+  private ctx!: CanvasRenderingContext2D;
+  private candy!: CandyText;
   private particles: Particle[] = [];
   private mousePosition = new Position(-100, -100);
-  private raf: number;
+  private raf: number = 0;
   private continueAnimating = true;
   constructor() {}
 
@@ -27,7 +31,7 @@ export class CanvasComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.canvas = <HTMLCanvasElement>document.getElementById('candy-text');
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d')!;
     this.canvas.style.width = '100%';
     this.canvas.style.height = '100%';
     this.canvas.width = this.canvas.offsetWidth;
@@ -40,12 +44,11 @@ export class CanvasComponent implements OnInit, AfterViewInit {
     this.particles.length = 0;
     this.particles = this.candy.getParticles(name);
     this.drawBackground();
-    this.particles.forEach(p => {
+    this.particles.forEach((p) => {
       p.draw(this.ctx);
     });
   }
 
-  @HostListener('mousemove', ['$event'])
   calculateMouseRelativePositionInCanvas(e: MouseEvent) {
     // Note: I have handled scroll effect
     this.mousePosition.x =
@@ -58,7 +61,6 @@ export class CanvasComponent implements OnInit, AfterViewInit {
       this.canvas.offsetTop;
   }
 
-  @HostListener('mouseenter', ['$event'])
   startAnimation(e: MouseEvent) {
     this.raf = window.requestAnimationFrame(() => this.animate());
     this.continueAnimating = true;
@@ -77,10 +79,10 @@ export class CanvasComponent implements OnInit, AfterViewInit {
 
     this.drawBackground();
     // clean particles are not in canvas to reduce computation
-    this.particles = this.particles.filter(p =>
+    this.particles = this.particles.filter((p) =>
       p.isInCanvas(this.canvas.width, this.canvas.height)
     );
-    this.particles.forEach(p => {
+    this.particles.forEach((p) => {
       p.flyAwayWhenMouseOver(this.mousePosition);
       p.draw(this.ctx);
     });

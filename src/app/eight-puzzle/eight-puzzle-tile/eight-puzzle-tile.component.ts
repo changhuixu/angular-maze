@@ -1,10 +1,14 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EightPuzzleService } from '../services/eight-puzzle.services';
 
 @Component({
   selector: 'app-eight-puzzle-tile',
   templateUrl: './eight-puzzle-tile.component.html',
   styleUrls: ['./eight-puzzle-tile.component.css'],
+  standalone: false,
+  host: {
+    '(click)': 'move($event)',
+  },
 })
 export class EightPuzzleTileComponent implements OnInit {
   @Input() id = 0;
@@ -14,7 +18,6 @@ export class EightPuzzleTileComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  @HostListener('click', ['$event'])
   move() {
     this.svc.move(this.id);
 

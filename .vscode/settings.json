@@ -1,10 +1,6 @@
 {
-    "cSpell.words": [
-        "devkit",
-        "ghpage",
-        "mathjax",
-        "mathml",
-        "mfrac",
-        "mrow"
-    ]
+  "cSpell.words": ["devkit", "ghpage", "mathjax", "mathml", "mfrac", "mrow"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  }
 }

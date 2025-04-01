@@ -9,7 +9,7 @@ export class CandyText {
   private readonly canvasHeight: number;
 
   constructor(private readonly canvas: HTMLCanvasElement) {
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d')!;
     this.canvasWidth = this.canvas.width;
     this.canvasHeight = this.canvas.height;
   }

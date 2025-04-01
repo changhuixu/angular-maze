@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-math',
   templateUrl: './math1.component.html',
   styleUrls: ['./math1.component.css'],
+  standalone: false,
 })
 export class Math1Component implements OnInit {
   nAdd = 10;

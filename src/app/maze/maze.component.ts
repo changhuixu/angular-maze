@@ -1,18 +1,18 @@
-import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
+import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
 import { Cell, Maze, keyboardMap } from './models';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-maze',
   templateUrl: './maze.component.html',
-  styleUrls: ['./maze.component.css']
+  styleUrls: ['./maze.component.css'],
+  standalone: false,
 })
 export class MazeComponent implements OnInit, AfterViewInit {
   row = 15;
   col = 15;
-  private maze: Maze;
-  private canvas: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
+  private maze!: Maze;
+  private canvas!: HTMLCanvasElement;
+  private ctx!: CanvasRenderingContext2D;
   private readonly cellSize = 20; // length of cell edge
   private readonly cellEdgeThickness = 2; // thickness of cell edge
   private readonly cellBackground = '#FFFFFF';
@@ -22,21 +22,17 @@ export class MazeComponent implements OnInit, AfterViewInit {
   private readonly solutionPathThickness = 3;
   private gameOver = false;
   private myPath: Cell[] = [];
-  private currentCell: Cell;
+  private currentCell!: Cell;
   showTestButton = false;
   busy = false;
 
-  constructor() {
-    if (!environment.production) {
-      this.showTestButton = true;
-    }
-  }
+  constructor() {}
 
   ngOnInit() {}
 
   ngAfterViewInit() {
     this.canvas = <HTMLCanvasElement>document.getElementById('maze');
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d')!;
     this.drawMaze();
   }
 
@@ -55,7 +51,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
     // draw the cells
     this.ctx.lineWidth = this.cellEdgeThickness;
     this.ctx.fillStyle = this.cellBackground;
-    this.maze.cells.forEach(x => x.forEach(c => this.draw(c)));
+    this.maze.cells.forEach((x) => x.forEach((c) => this.draw(c)));
 
     this.initPlay();
     this.busy = false;
@@ -79,7 +75,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
   @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (this.gameOver) return;
-    const direction = keyboardMap[event.key];
+    const direction = keyboardMap(event.key);
     if (direction) {
       this.move(direction);
       event.preventDefault();
@@ -87,32 +83,27 @@ export class MazeComponent implements OnInit, AfterViewInit {
   }
 
   move(direction: 'Left' | 'Right' | 'Up' | 'Down') {
-    let nextCell: Cell;
+    let nextCell = this.currentCell;
     if (direction === 'Left') {
       if (this.currentCell.col < 1) return;
-      nextCell = this.maze.cells[this.currentCell.row][
-        this.currentCell.col - 1
-      ];
+      nextCell =
+        this.maze.cells[this.currentCell.row][this.currentCell.col - 1];
     }
     if (direction === 'Right') {
       if (this.currentCell.col + 1 >= this.col) return;
-      nextCell = this.maze.cells[this.currentCell.row][
-        this.currentCell.col + 1
-      ];
+      nextCell =
+        this.maze.cells[this.currentCell.row][this.currentCell.col + 1];
     }
     if (direction === 'Up') {
       if (this.currentCell.row < 1) return;
-      nextCell = this.maze.cells[this.currentCell.row - 1][
-        this.currentCell.col
-      ];
+      nextCell =
+        this.maze.cells[this.currentCell.row - 1][this.currentCell.col];
     }
     if (direction === 'Down') {
       if (this.currentCell.row + 1 >= this.row) return;
-      nextCell = this.maze.cells[this.currentCell.row + 1][
-        this.currentCell.col
-      ];
+      nextCell =
+        this.maze.cells[this.currentCell.row + 1][this.currentCell.col];
     }
-
     if (this.currentCell.isConnectedTo(nextCell)) {
       if (
         this.myPath.length > 1 &&
@@ -163,7 +154,7 @@ export class MazeComponent implements OnInit, AfterViewInit {
     this.ctx.beginPath();
     this.ctx.moveTo(0, this.cellSize / 2);
 
-    path.forEach(x =>
+    path.forEach((x) =>
       this.ctx.lineTo(
         (x.col + 0.5) * this.cellSize,
         (x.row + 0.5) * this.cellSize
@@ -247,8 +238,8 @@ export class MazeComponent implements OnInit, AfterViewInit {
     const size = 50;
     for (let i = 0; i < 100; i++) {
       const maze = new Maze(size, size);
-      maze.cells.forEach(row =>
-        row.forEach(c => {
+      maze.cells.forEach((row) =>
+        row.forEach((c) => {
           if (c.nEdges === 4) {
             cellsHaveFourEdges.push(c);
           }

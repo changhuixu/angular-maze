@@ -3,12 +3,13 @@ import { EightPuzzleService } from './services/eight-puzzle.services';
 
 @Component({
   selector: 'app-eight-puzzle',
+  standalone: false,
   templateUrl: './eight-puzzle.component.html',
   styleUrls: ['./eight-puzzle.component.css'],
 })
 export class EightPuzzleComponent implements OnInit {
   tileSize = 0;
-  letters = [];
+  letters: string[] = [];
   constructor(private svc: EightPuzzleService) {}
 
   ngOnInit(): void {

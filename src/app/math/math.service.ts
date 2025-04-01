@@ -17,7 +17,7 @@ declare global {
   providedIn: 'root',
 })
 export class MathService {
-  private loaded$: ReplaySubject<boolean>;
+  private loaded$?: ReplaySubject<boolean>;
   private readonly source =
     'https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/mml-chtml.js';
   private readonly integrity =
@@ -39,8 +39,8 @@ export class MathService {
     script.async = true;
     script.crossOrigin = 'anonymous';
     script.onload = () => {
-      this.loaded$.next(true);
-      this.loaded$.complete();
+      this.loaded$!.next(true);
+      this.loaded$!.complete();
     };
 
     this.document.head.appendChild(script);

@@ -1,16 +1,17 @@
 import {
   Directive,
+  ElementRef,
+  Input,
+  NgZone,
   OnChanges,
   OnInit,
-  Input,
-  ElementRef,
   SimpleChanges,
-  NgZone,
 } from '@angular/core';
 import { MathService } from './math.service';
 
 @Directive({
   selector: '[appMath]',
+  standalone: false,
 })
 export class MathDirective implements OnInit, OnChanges {
   @Input() appMath = '';

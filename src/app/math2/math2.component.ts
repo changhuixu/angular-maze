@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-math2',
   templateUrl: './math2.component.html',
   styleUrls: ['./math2.component.css', '../math1/math1.component.css'],
+  standalone: false,
 })
 export class Math2Component implements OnInit {
   frac = `<math xmlns="http://www.w3.org/1998/Math/MathML">

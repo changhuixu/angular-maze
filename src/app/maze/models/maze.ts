@@ -22,7 +22,7 @@ export class Maze {
       }
     }
     // populate cell neighbors (an optimization)
-    this.cells.forEach(row => row.forEach(c => this.mapNeighbors(c)));
+    this.cells.forEach((row) => row.forEach((c) => this.mapNeighbors(c)));
 
     // generate maze
     this.randomRowNumbers = Utils.shuffleArray([...Array(this.nRow).keys()]);
@@ -46,7 +46,7 @@ export class Maze {
    * traverse the maze using depth-first algorithm
    */
   findPath(): Cell[] {
-    this.cells.forEach(x => x.forEach(c => (c.traversed = false)));
+    this.cells.forEach((x) => x.forEach((c) => (c.traversed = false)));
     const path: Cell[] = [this.firstCell];
 
     while (1) {
@@ -58,8 +58,8 @@ export class Maze {
       }
 
       const traversableNeighbors = current.neighbors
-        .filter(c => c.isConnectedTo(current))
-        .filter(c => !c.traversed);
+        .filter((c) => c.isConnectedTo(current))
+        .filter((c) => !c.traversed);
       if (traversableNeighbors.length) {
         path.unshift(traversableNeighbors[0]);
       } else {
@@ -71,7 +71,7 @@ export class Maze {
   }
 
   private huntAndKill() {
-    let current = this.randomCell; // hunt-and-kill starts from a random Cell
+    let current: Cell | null = this.randomCell; // hunt-and-kill starts from a random Cell
     while (current) {
       this.kill(current);
       current = this.hunt();
@@ -79,27 +79,28 @@ export class Maze {
   }
   private kill(current: Cell) {
     while (current) {
-      const next = current.neighbors.find(c => !c.visited);
+      const next = current.neighbors.find((c) => !c.visited);
       if (next) {
         current.connectTo(next);
       }
-      current = next;
+      current = next!;
     }
   }
-  private hunt(): Cell {
+  private hunt(): Cell | null {
     for (let huntRow of this.randomRowNumbers) {
       for (let huntColumn of this.randomColNumbers) {
         const cell = this.cells[huntRow][huntColumn];
         if (cell.visited) {
           continue;
         }
-        const next = cell.neighbors.find(c => c.visited);
+        const next = cell.neighbors.find((c) => c.visited);
         if (next) {
           cell.connectTo(next);
           return cell;
         }
       }
     }
+    return null;
   }
 
   private mapNeighbors(cell: Cell): void {
