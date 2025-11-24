@@ -1,0 +1,1 @@
+body{font-family:Arial,Helvetica,sans-serif}nav a{display:inline-block;color:#000;background:#dbeccd;padding:.5rem 1rem;margin:1rem;width:6rem;text-decoration:none;white-space:nowrap}nav a.active{background-color:#3a823d;color:#fff;font-weight:500}nav a:hover:not(.active){background-color:#89cf4b;color:#fff}
