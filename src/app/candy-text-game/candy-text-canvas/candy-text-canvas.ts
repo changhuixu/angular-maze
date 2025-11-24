@@ -2,22 +2,29 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  OnInit,
 } from '@angular/core';
 import { CandyText, Particle, Position } from '../models';
 
 @Component({
-  selector: 'app-canvas',
-  templateUrl: './canvas.component.html',
-  styleUrls: ['./canvas.component.css'],
+  selector: 'app-candy-text-canvas',
+  imports: [],
+  template: `<canvas id="candy-text" height="300"></canvas>`,
+  styles: [
+    `
+      :host {
+        height: 100%;
+        width: 100%;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: false,
   host: {
     '(mouseenter)': 'startAnimation($event)',
     '(mousemove)': 'calculateMouseRelativePositionInCanvas($event)',
+    '(mouseout)': 'stopAnimation($event)',
   },
 })
-export class CanvasComponent implements OnInit, AfterViewInit {
+export class CandyTextCanvas implements AfterViewInit {
   private canvas!: HTMLCanvasElement;
   private ctx!: CanvasRenderingContext2D;
   private candy!: CandyText;
@@ -27,11 +34,9 @@ export class CanvasComponent implements OnInit, AfterViewInit {
   private continueAnimating = true;
   constructor() {}
 
-  ngOnInit(): void {}
-
   ngAfterViewInit(): void {
     this.canvas = <HTMLCanvasElement>document.getElementById('candy-text');
-    this.ctx = this.canvas.getContext('2d')!;
+    this.ctx = this.canvas.getContext('2d', { willReadFrequently: true })!;
     this.canvas.style.width = '100%';
     this.canvas.style.height = '100%';
     this.canvas.width = this.canvas.offsetWidth;
@@ -66,11 +71,10 @@ export class CanvasComponent implements OnInit, AfterViewInit {
     this.continueAnimating = true;
   }
 
-  // @HostListener('mouseout', ['$event'])
-  // stopAnimation(e: MouseEvent) {
-  //   window.cancelAnimationFrame(this.raf);
-  //   this.continueAnimating = false; // stop animation when mouse out.
-  // }
+  stopAnimation(e: MouseEvent) {
+    //   window.cancelAnimationFrame(this.raf);
+    //   this.continueAnimating = false; // stop animation when mouse out.
+  }
 
   animate() {
     if (!this.particles.length || !this.continueAnimating) {

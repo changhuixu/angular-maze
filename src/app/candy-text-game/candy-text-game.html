@@ -1,10 +1,10 @@
 <div style="text-align: center">
   <div class="my-form">
     <label for="name">Enter your name: </label>
-    <input type="text" [(ngModel)]="name" />
+    <input id="name" type="text" [(ngModel)]="name" />
     <button type="button" (click)="draw()">Draw</button>
   </div>
   <section>
-    <app-canvas />
+    <app-candy-text-canvas />
   </section>
 </div>

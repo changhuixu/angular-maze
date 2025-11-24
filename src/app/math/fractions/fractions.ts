@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MathDirective } from '../math.directive';
 
 @Component({
-  selector: 'app-math2',
-  templateUrl: './math2.component.html',
-  styleUrls: ['./math2.component.css', '../math1/math1.component.css'],
-  standalone: false,
+  imports: [MathDirective],
+  templateUrl: './fractions.html',
+  styleUrls: ['./fractions.css', '../basic-math/basic-math.css'],
 })
-export class Math2Component implements OnInit {
+export class Fractions implements OnInit {
   frac = `<math xmlns="http://www.w3.org/1998/Math/MathML">
 <mfrac>
   <mn>numerator1</mn>
@@ -30,8 +30,8 @@ export class Math2Component implements OnInit {
 <mn>?</mn>
 </math>
   `;
-  nAdd = 10;
-  nSub = 10;
+  nAdd = 6;
+  nSub = 6;
   fracSimp = '<math xmlns="http://www.w3.org/1998/Math/MathML">';
   additions1 = '<math xmlns="http://www.w3.org/1998/Math/MathML">';
   additions2 = '<math xmlns="http://www.w3.org/1998/Math/MathML">';

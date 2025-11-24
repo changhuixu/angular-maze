@@ -1,13 +1,17 @@
-import { AfterViewInit, Component, HostListener, OnInit } from '@angular/core';
-import { Cell, Maze, keyboardMap } from './models';
+import { AfterViewInit, Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Cell, keyboardMap, Maze } from './models';
 
 @Component({
-  selector: 'app-maze',
-  templateUrl: './maze.component.html',
-  styleUrls: ['./maze.component.css'],
-  standalone: false,
+  selector: 'app-maze-game',
+  imports: [[FormsModule]],
+  templateUrl: './maze-game.html',
+  styleUrl: './maze-game.css',
+  host: {
+    'document:keydown': 'handleKeyDown($event)',
+  },
 })
-export class MazeComponent implements OnInit, AfterViewInit {
+export class MazeGame implements AfterViewInit {
   row = 15;
   col = 15;
   private maze!: Maze;
@@ -27,8 +31,6 @@ export class MazeComponent implements OnInit, AfterViewInit {
   busy = false;
 
   constructor() {}
-
-  ngOnInit() {}
 
   ngAfterViewInit() {
     this.canvas = <HTMLCanvasElement>document.getElementById('maze');
@@ -72,7 +74,6 @@ export class MazeComponent implements OnInit, AfterViewInit {
     this.ctx.stroke();
   }
 
-  @HostListener('document:keydown', ['$event'])
   handleKeyDown(event: KeyboardEvent) {
     if (this.gameOver) return;
     const direction = keyboardMap(event.key);

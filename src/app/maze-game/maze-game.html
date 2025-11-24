@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div style="text-align: center">
   <div class="maze-form">
     <label for="nRow"># Rows</label>
     <input id="nRow" type="number" [(ngModel)]="row" min="1" max="500" />
@@ -8,14 +8,9 @@
       New Maze
     </button>
     <button type="button" (click)="drawSolution()">Solution</button>
-    <button
-      type="button"
-      (click)="test()"
-      *ngIf="showTestButton"
-      [disabled]="busy"
-    >
-      Test
-    </button>
+    @if (showTestButton) {
+    <button type="button" (click)="test()" [disabled]="busy">Test</button>
+    }
   </div>
   <section>
     <canvas id="maze"></canvas>

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-math3',
-  templateUrl: './math3.component.html',
-  styleUrls: ['./math3.component.css', '../math1/math1.component.css'],
-  standalone: false,
+  imports: [],
+  templateUrl: './four-operations.html',
+  styleUrls: ['../basic-math/basic-math.css'],
 })
-export class Math3Component implements OnInit {
+export class FourOperations implements OnInit {
   nAdd = 10;
   nSub = 10;
   list1: string[] = [];
